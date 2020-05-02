@@ -7,7 +7,11 @@ img {
 
 body {
     font-family: 'Roboto Slab',sans-serif;
+    background: url(../Content/img/marshall-wallpaper.jpg);
+    height: 100vh;
 }
+
+
 
 .navbar-brand {
     color: #fed136 !important;
@@ -32,6 +36,7 @@ header.encabezado {
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
+
 }
 
     header.encabezado .texto-encabezado {
@@ -52,7 +57,7 @@ header.encabezado {
             font-weight: 700;
             line-height: 3.2rem;
             margin-bottom: 3.5rem;
-            font-family: Montserrat Color Emoji';
+            font-family: 'Montserrat Color Emoji';
         }
 
 
@@ -85,16 +90,19 @@ header.encabezado {
     }
 
 
-section {
-    margin-top: 2rem;
+.instrucciones {
+    margin-top: 0rem;
     text-align: center;
+    background-color: white;
+    min-width: 100%;
+  
 }
 
-    section .icono {
+    .instrucciones .icono {
         padding: 1.2rem;
     }
 
-    section img {
+    .instrucciones .img {
         width: 4rem;
     }
 
@@ -141,7 +149,7 @@ h2 {
     width: 100%;
     min-height: 100%;
     padding: 20px;
-    background-color: black;
+    /*background-color: black;*/
 }
 
 #formContent {
@@ -210,7 +218,7 @@ input[type=button], input[type=submit], input[type=reset] {
         background-color: #39ace7;
     }
 
-    input[type=button]:active, input[type=submit]:active, input[type=reset]:active, {
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
         -moz-transform: scale(0.95);
         -webkit-transform: scale(0.95);
         -o-transform: scale(0.95);
