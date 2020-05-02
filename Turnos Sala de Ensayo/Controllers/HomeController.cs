@@ -13,10 +13,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-            return View("Login");
-        }
+ 
 
         public ActionResult About()
         {
