@@ -21,12 +21,16 @@ namespace Turnos_Sala_de_Ensayo.Controllers
         {
 
             ActionResult action = View("Login");
+
+            //Acá busco el usuario que se va a conectar y valido contra la base de datos
             var usuario = RNUsuario.buscar(modelo.nombreUsuario, modelo.password);
             
-                
-                if (usuario != null)
+                action = RedirectToAction("Index", "SeleccionSalas");
+                if (usuario == null)
                 { 
-                    action = RedirectToAction("Index", "SeleccionSalas"); 
+                    ViewBag.MensajeErrorLogin = "Usuario o Password incorrecto.";
+                    action = View("Login");
+                     
                 }                    
             
             return action;

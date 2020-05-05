@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+
+}
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<div class="row">
+    <form class="form-horizontal">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Paga tu reserva</legend>
+            </div>
+
+            <!-- Name -->
+            <div class="control-group">
+                <label class="control-label" for="username">Nombre Completo</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+
+            <!-- Card Number -->
+            <div class="control-group">
+                <label class="control-label" for="email">Número de Tarjeta</label>
+                <div class="controls">
+                    <input type="number" id="email" name="email" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+
+            <!-- Expiry-->
+            <div class="control-group">
+                <label class="control-label" for="password">Fecha de Caducidad</label>
+                <div class="controls">
+                    <select class="span3" name="expiry_month" id="expiry_month">
+                        <option></option>
+                        <option value="01">Ene (01)</option>
+                        <option value="02">Feb (02)</option>
+                        <option value="03">Mar (03)</option>
+                        <option value="04">Abr (04)</option>
+                        <option value="05">May (05)</option>
+                        <option value="06">Jun (06)</option>
+                        <option value="07">Jul (07)</option>
+                        <option value="08">Ago (08)</option>
+                        <option value="09">Sep (09)</option>
+                        <option value="10">Oct (10)</option>1
+                        <option value="11">Nov (11)</option>
+                        <option value="12">Dec (12)</option>
+                    </select>
+                    <select class="span2" name="expiry_year">
+                        <option value="13">2013</option>
+                        <option value="14">2014</option>
+                        <option value="15">2015</option>
+                        <option value="16">2016</option>
+                        <option value="17">2017</option>
+                        <option value="18">2018</option>
+                        <option value="19">2019</option>
+                        <option value="20">2020</option>
+                        <option value="21">2021</option>
+                        <option value="22">2022</option>
+                        <option value="23">2023</option>
+                        <option value="24">2024</option>
+                        <option value="25">2025</option>
+                        <option value="26">2026</option>
+                        <option value="27">2027</option>
+                        <option value="28">2028</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <!-- CVV -->
+            <div class="control-group">
+                <label class="control-label" for="password_confirm">CVV</label>
+                <div class="controls">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="span2">
+                </div>
+            </div>
+
+
+
+            <!-- Submit -->
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-success">Pagar</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+        </div>
+
+</div>
+
+
+    </body>

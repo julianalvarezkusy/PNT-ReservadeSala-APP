@@ -19,6 +19,9 @@
     <!---CSS-->
     <link rel="stylesheet" href="~/Content/styles.css">
     <link rel="stylesheet" href="~/Content/Styles_seleccion_salas.css" />
+
+    <!--JS-->
+    <script type="text/javascript" src="~/Scripts/scripts.js"></script>
 </head>
 
 
@@ -35,10 +38,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" @Html.ActionLink("Home", "Index","Home")</a>
+                        <a class="nav-link js-scroll-trigger"  @Html.ActionLink("Home", "Index","Home") </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">Reserva</a>
+                        <a class="nav-link js-scroll-trigger" href="#" >Reserva</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" @Html.ActionLink("Iniciar Sesion", "Login","Login")</a>

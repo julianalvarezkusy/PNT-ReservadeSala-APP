@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
+    "",
     "\\Turnos Sala de Ensayo",
     "\\Turnos Sala de Ensayo\\App_Start",
-    "\\Turnos Sala de Ensayo\\Controllers",
     "\\Turnos Sala de Ensayo\\Views",
+    "\\Turnos Sala de Ensayo\\Views\\Login",
+    "\\Turnos Sala de Ensayo\\Views\\SeleccionSalas",
     "\\Turnos Sala de Ensayo\\Views\\Shared"
   ],
+  "SelectedNode": "\\Turnos Sala de Ensayo\\Views\\Login\\Login.cshtml",
   "PreviewInSolutionExplorer": false
 }

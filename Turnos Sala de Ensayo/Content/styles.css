@@ -7,7 +7,7 @@ img {
 
 body {
     font-family: 'Roboto Slab',sans-serif;
-    background: url(../Content/img/marshall-wallpaper.jpg);
+    /* background: url(../Content/img/marshall-wallpaper.jpg);*/
     height: 100vh;
 }
 
@@ -254,6 +254,11 @@ input[type=button], input[type=submit], input[type=reset] {
 
         input[type=text]:placeholder, input[type=password]:placeholder {
             color: #cccccc;
+        }
+
+        .errorLogin{
+            font-weight: 100;
+            color: red;
         }
 
 
