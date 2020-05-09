@@ -11,6 +11,10 @@ body {
     height: 100vh;
 }
 
+.miLogo {
+    height: 5rem;
+}
+
 
 
 .navbar-brand {
@@ -106,6 +110,14 @@ header.encabezado {
         width: 4rem;
     }
 
+
+    .fondo{
+        padding-top: 5rem;
+    }
+
+.navbar-nav {
+    color: black !important;
+}
 
     /*Estilos del Login Bootstrap*/
 
@@ -702,6 +714,5 @@ input[type=text] {
 #icon {
     width: 60%;
     height: 5rem;
-    
 }
 
