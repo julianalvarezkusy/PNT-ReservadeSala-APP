@@ -2,11 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Turnos Sala de Ensayo",
+    "\\Turnos Sala de Ensayo\\Reserva.Datos",
     "\\Turnos Sala de Ensayo\\Views",
     "\\Turnos Sala de Ensayo\\Views\\Login",
     "\\Turnos Sala de Ensayo\\Views\\SeleccionSalas",
     "\\Turnos Sala de Ensayo\\Views\\Shared"
   ],
-  "SelectedNode": "\\Turnos Sala de Ensayo\\Views\\Login\\Login.cshtml",
+  "SelectedNode": "\\Turnos Sala de Ensayo\\App_Data",
   "PreviewInSolutionExplorer": false
 }

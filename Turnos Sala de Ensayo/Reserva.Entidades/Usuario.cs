@@ -7,13 +7,13 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
 {
     public class Usuario
     {
-        public int id { get; set; }
+        public int Id { get; set; }
   
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
         
-        public string apellido { get; set; }
-        public string usuario { get; set; }
-        public string password { get; set; }
+        public string Apellido { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
     }
 }

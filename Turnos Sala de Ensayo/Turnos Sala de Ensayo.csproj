@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AgregarUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reserva.Datos\ADUsuario.cs" />
     <Compile Include="Reserva.Datos\BaseDeDatos.cs" />
+    <Compile Include="Reserva.Datos\Contexto.cs" />
     <Compile Include="Reserva.Entidades\Usuario.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
   </ItemGroup>
@@ -193,6 +195,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\SeleccionSalas\Index.cshtml" />
     <Content Include="Views\Pago\Index.cshtml" />
+    <Content Include="Views\AgregarUsuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
