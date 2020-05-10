@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
+    <Compile Include="Controllers\SeleccionHorarioController.cs" />
     <Compile Include="Controllers\SeleccionSalasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,7 +151,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\background-rock.jpg" />
     <Content Include="Content\img\bateria.jpg" />
+    <Content Include="Content\img\drums.svg" />
     <Content Include="Content\img\facebook.svg" />
+    <Content Include="Content\img\gesture.svg" />
     <Content Include="Content\img\miLogo.png" />
     <Content Include="Content\img\marshall-wallpaper.jpg" />
     <Content Include="Content\img\music.svg" />
@@ -196,6 +199,7 @@
     <Content Include="Views\SeleccionSalas\Index.cshtml" />
     <Content Include="Views\Pago\Index.cshtml" />
     <Content Include="Views\AgregarUsuario\Index.cshtml" />
+    <Content Include="Views\SeleccionHorario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

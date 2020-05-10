@@ -716,3 +716,10 @@ input[type=text] {
     height: 5rem;
 }
 
+/*Estilos de tabla*/
+
+.horarios {
+    background: white;
+    padding-top: 7rem;
+    padding-bottom: 2.5rem;
+}
