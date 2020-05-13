@@ -170,3 +170,7 @@ C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\obj\
 C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\obj\Debug\Turnos Sala de Ensayo.csproj.CopyComplete
 C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\obj\Debug\Turnos Sala de Ensayo.dll
 C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\obj\Debug\Turnos Sala de Ensayo.pdb
+C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\bin\EntityFramework.dll
+C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\bin\EntityFramework.SqlServer.dll
+C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\bin\EntityFramework.xml
+C:\Users\jualvarez\Source\Repos\PNT-ReservadeSala-APP\Turnos Sala de Ensayo\bin\EntityFramework.SqlServer.xml

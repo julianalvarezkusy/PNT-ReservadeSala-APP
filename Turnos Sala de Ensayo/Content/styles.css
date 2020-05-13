@@ -8,7 +8,11 @@ img {
 body {
     font-family: 'Roboto Slab',sans-serif;
     /* background: url(../Content/img/marshall-wallpaper.jpg);*/
-    height: 100vh;
+    height: 90vh;
+}
+
+.miLogo {
+    height: 5rem;
 }
 
 
@@ -31,16 +35,22 @@ nav a {
 header.encabezado {
     text-align: center;
     color: #fff;
-    background: url(../content/img/background-rock.jpg);
+    background: url(../content/img/background-rockband.jpg);
+    opacity: 0.9;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
-
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    
 }
 
+
+
     header.encabezado .texto-encabezado {
-        padding-top: 15rem;
+        padding-top: 10rem;
         padding-bottom: 10rem;
     }
 
@@ -53,11 +63,13 @@ header.encabezado {
         }
 
         header.encabezado .texto-encabezado .intro2-encabezado {
-            font-size: 3.5rem;
+            font-size: 5rem;
             font-weight: 700;
-            line-height: 3.2rem;
+            line-height: 6rem;
             margin-bottom: 3.5rem;
-            font-family: 'Montserrat Color Emoji';
+            margin-top: 1rem;
+            /*font-family: 'Montserrat Color Emoji';*/
+            font-family: 'Special Elite', cursive;
         }
 
 
@@ -106,6 +118,14 @@ header.encabezado {
         width: 4rem;
     }
 
+
+    .fondo{
+        padding-top: 5rem;
+    }
+
+.navbar-nav {
+    color: black !important;
+}
 
     /*Estilos del Login Bootstrap*/
 
@@ -702,6 +722,12 @@ input[type=text] {
 #icon {
     width: 60%;
     height: 5rem;
-    
 }
 
+/*Estilos de tabla*/
+
+.horarios {
+    background: white;
+    padding-top: 7rem;
+    padding-bottom: 2.5rem;
+}
