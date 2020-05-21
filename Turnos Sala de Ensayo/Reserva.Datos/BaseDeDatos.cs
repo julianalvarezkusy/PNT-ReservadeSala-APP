@@ -16,11 +16,11 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
         {
             new Usuario()
             {
-                id = 1,
-                nombre = "Julian",
-                apellido = "Alvarez",
-                usuario = "julian",
-                password = "123"
+                Id = 1,
+                Nombre = "Julian",
+                Apellido = "Alvarez",
+                Username = "julian",
+                Password = "123"
             }
         };
     }

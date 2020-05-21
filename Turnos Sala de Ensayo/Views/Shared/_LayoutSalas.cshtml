@@ -11,6 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
     <!--CSS BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -30,21 +31,24 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" @Html.ActionLink("SALA DE ENSAYO", "Index","Home")</a>
+            <a class="navbar-brand js-scroll-trigger" href="/Home/Index"><img class="miLogo" src="~/Content/img/miLogo.png" /></a>
+            
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
+
+    
                 <i class="fas fa-bars"></i>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger"  @Html.ActionLink("Home", "Index","Home") </a>
+                        <a class="nav-link js-scroll-trigger" @Html.ActionLink("Home", "Index", "Home") </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#" >Reserva</a>
+                        <a class="nav-link js-scroll-trigger" href="#">Reserva</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" @Html.ActionLink("Iniciar Sesion", "Login","Login")</a>
+                        <a class="nav-link js-scroll-trigger" @Html.ActionLink("Iniciar Sesion", "Login", "Login")</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#">Contacto</a>
@@ -66,17 +70,26 @@
         <div class="card text-center">
             <div class="card-body">
                 <div class="container"><h1>Contacto</h1></div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
 
-                <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
-                <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
-                <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
-                <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
-
-            </div>
-            <div class="card-footer text-muted">
-                Copyright © Todos los derechos reservados
-            </div>
-        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a title="Los Tejos" href="#"><img src="~/Content/img/facebook.svg" alt="" /></a>
+                    </div>
+                </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Copyright © Todos los derechos reservados
+                    </div>
+                </div>
     </footer>
 </body>
 
