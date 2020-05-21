@@ -9,14 +9,17 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 {
     public class Contexto : DbContext
     {
-        public DbSet<Usuario> Usuarios { get; set; }
+        
 
         public Contexto() : base("ConnectionName")
         {
 
         }
 
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Turno> Turnos { get; set; }
+
+        public DbSet<ReservaDeSala> ReservasDeSalas { get; set; }
 
     }
 }

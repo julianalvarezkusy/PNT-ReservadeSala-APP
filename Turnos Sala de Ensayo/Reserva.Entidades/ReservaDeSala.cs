@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
 {
-    public class Reserva
+    public class ReservaDeSala
     {
         public int Id { get; set; }
         public int IdSala { get; set; }
-        public int IdUsuario { get; set; }
+        public Usuario Usuario { get; set; }
 
-        public int IdTurno { get; set; }
+        public Turno Turno { get; set; }
     }
 }

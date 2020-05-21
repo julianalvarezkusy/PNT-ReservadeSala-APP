@@ -8,7 +8,8 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
     public class Turno
     {
         public int Id { get; set; }
-        public String Fecha { get; set; }
-        public String Hora { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal Hora { get; set; }
+
     }
 }

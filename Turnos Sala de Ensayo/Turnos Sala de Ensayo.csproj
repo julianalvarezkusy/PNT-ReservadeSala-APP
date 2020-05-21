@@ -140,10 +140,12 @@
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reserva.Datos\ADReservasDeSalas.cs" />
+    <Compile Include="Reserva.Datos\ADTurnos.cs" />
     <Compile Include="Reserva.Datos\ADUsuario.cs" />
     <Compile Include="Reserva.Datos\BaseDeDatos.cs" />
     <Compile Include="Reserva.Datos\Contexto.cs" />
-    <Compile Include="Reserva.Entidades\Reserva.cs" />
+    <Compile Include="Reserva.Entidades\ReservaDeSala.cs" />
     <Compile Include="Reserva.Entidades\Turno.cs" />
     <Compile Include="Reserva.Entidades\Sala.cs" />
     <Compile Include="Reserva.Entidades\Usuario.cs" />
