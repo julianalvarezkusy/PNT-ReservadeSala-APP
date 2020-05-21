@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgregarUsuarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Horarios2Controller.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\SeleccionHorarioController.cs" />
@@ -137,11 +138,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\ReservaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reserva.Datos\ADUsuario.cs" />
     <Compile Include="Reserva.Datos\BaseDeDatos.cs" />
     <Compile Include="Reserva.Datos\Contexto.cs" />
+    <Compile Include="Reserva.Entidades\Reserva.cs" />
+    <Compile Include="Reserva.Entidades\Turno.cs" />
+    <Compile Include="Reserva.Entidades\Sala.cs" />
     <Compile Include="Reserva.Entidades\Usuario.cs" />
+    <Compile Include="Reserva.RN\GestorDeReserva.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +206,8 @@
     <Content Include="Views\Pago\Index.cshtml" />
     <Content Include="Views\AgregarUsuario\Index.cshtml" />
     <Content Include="Views\SeleccionHorario\Index.cshtml" />
+    <Content Include="Views\SeleccionHorario\Horarios.cshtml" />
+    <Content Include="Views\Horarios2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
