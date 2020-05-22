@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Turnos_Sala_de_Ensayo.Models;
 using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 
 namespace Turnos_Sala_de_Ensayo.Reserva.Datos
@@ -37,5 +38,27 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             }
             
         }
+
+        public static List<Models.TurnosModel> devolverLista()
+        {
+            List<Models.TurnosModel> lista = null;
+            using (Contexto c = new Contexto())
+            {
+                lista =
+                   (from db in c.Turnos
+                    select new TurnosModel
+                    {
+                        Id = db.Id,
+                        fecha = db.Fecha.ToString(),
+                        hora = db.Hora.ToString()
+
+                    }).ToList();
+
+            }
+
+
+            return lista;
+        }
+
     }
 }

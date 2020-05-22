@@ -6,3 +6,8 @@
 function loginFallido() {
     alert("Los datos ingresados son incorrectos, intente nuevamente.");
 }
+
+function boolean creoTurnos() {
+    var crear = true;
+    return crear;
+}

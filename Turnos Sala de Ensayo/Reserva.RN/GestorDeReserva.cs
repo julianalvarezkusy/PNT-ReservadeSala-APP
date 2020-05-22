@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Turnos_Sala_de_Ensayo.Reserva.Datos;
 
 namespace Turnos_Sala_de_Ensayo.Reserva.RN
@@ -18,7 +19,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             return true;
         }
 
-        public void ConstruirTurnos(DateTime fechaDesde, DateTime fechaHasta)
+        public static void ConstruirTurnos(DateTime fechaDesde, DateTime fechaHasta)
         {
             DateTime fecha = fechaDesde;
             do
@@ -42,6 +43,34 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
                 }
                 fecha = fecha.AddDays(1);
             } while (fecha != fechaHasta);
+        }
+
+        private static List<Models.TurnosModel> DevolverListaTurnos()
+        {
+
+
+            return ADTurnos.devolverLista();
+
+        }
+
+        public static List<SelectListItem> DevolverListaItems()
+        {
+
+            List<Models.TurnosModel> lista = DevolverListaTurnos();
+            List<SelectListItem> items = null;
+            items = lista.ConvertAll(db =>
+            {
+                return new SelectListItem()
+                {
+                    Text = db.fecha + " " + db.hora,
+                    Value = db.Id.ToString(),
+                    Selected = false
+                };
+
+            });
+
+
+            return items;
         }
     }
 }

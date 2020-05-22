@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Turnos_Sala_de_Ensayo.Reserva.Datos;
+using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 
 namespace Turnos_Sala_de_Ensayo
 {
@@ -16,6 +18,11 @@ namespace Turnos_Sala_de_Ensayo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            
+            
+
         }
     }
 }

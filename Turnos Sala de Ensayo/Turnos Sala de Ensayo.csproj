@@ -139,6 +139,7 @@
     </Compile>
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
+    <Compile Include="Models\TurnosModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reserva.Datos\ADReservasDeSalas.cs" />
     <Compile Include="Reserva.Datos\ADTurnos.cs" />
