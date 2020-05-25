@@ -21,5 +21,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 
         public DbSet<ReservaDeSala> ReservasDeSalas { get; set; }
 
+        public DbSet<Sala> salas { get; set; }
+
     }
 }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Antlr.Runtime.Misc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Turnos_Sala_de_Ensayo.Reserva.Datos;
+using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 
 namespace Turnos_Sala_de_Ensayo.Reserva.RN
 {
@@ -33,13 +35,13 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
                             Hora = i
                         }
                         );
-                    ADTurnos.Agregar(
-                        new Entidades.Turno()
-                        {
-                            Fecha = fecha,
-                            Hora = i + 0.5M
-                        }
-                        );
+                    //ADTurnos.Agregar(
+                    //    new Entidades.Turno()
+                    //    {
+                    //        Fecha = fecha,
+                    //        Hora = i + 0.5M
+                    //    }
+                    //    );
                 }
                 fecha = fecha.AddDays(1);
             } while (fecha != fechaHasta);
@@ -48,15 +50,15 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
         private static List<Models.TurnosModel> DevolverListaTurnos()
         {
 
-
-            return ADTurnos.devolverLista();
+           return ADTurnos.devolverLista();
 
         }
 
         public static List<SelectListItem> DevolverListaItems()
         {
 
-            List<Models.TurnosModel> lista = DevolverListaTurnos();
+            //List<Models.TurnosModel> lista = DevolverListaTurnos();
+            List<Models.TurnosModel> lista = ADTurnos.devolverLista();
             List<SelectListItem> items = null;
             items = lista.ConvertAll(db =>
             {
@@ -71,6 +73,35 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
 
             return items;
+        }
+
+        public static List<SelectListItem> DevolverListaSalas()
+        {
+            List<Sala> listaDeSalas = ADSalas.Buscar();
+
+            List<SelectListItem> items = null;
+
+            items = listaDeSalas.ConvertAll(db =>
+            {
+                return new SelectListItem()
+                {
+                    Text = db.Nombre,
+                    Value = db.Id.ToString(),
+                    Selected = false
+                };
+            });
+            return items; 
+        }
+
+        public static Turno BuscarTurno(int idTurno)
+        {
+            return ADTurnos.Buscar(idTurno);
+        }
+
+        public static ReservaDeSala Reservar(int idSala, Usuario usuario, Turno turno)
+        {
+
+            return ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno));
         }
     }
 }

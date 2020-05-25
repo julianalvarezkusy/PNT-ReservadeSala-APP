@@ -17,21 +17,49 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             return View();
         }
 
+        public Usuario UsuarioLogueado
+        {
+            get
+            {
+                if (Session["Usuario"] == null)
+                    return null;
+                return (Usuario)Session["Usuario"];
+            }
+            set
+            {
+                Session["Usuario"] = value;
+            }
+        }
         public ActionResult Loguearse(LogInModel modelo)
         {
 
-            ActionResult action = View("Login");
+            ActionResult action = RedirectToAction("Index", "SeleccionSalas");
+            Usuario usuario = null;
 
-            //Acá busco el usuario que se va a conectar y valido contra la base de datos
-            var usuario = RNUsuario.buscar(modelo.nombreUsuario, modelo.password);
-            
-                action = RedirectToAction("Index", "SeleccionSalas");
+
+            // Primero valido que no haya nadie logueado
+            if (this.UsuarioLogueado != null)
+            {
+
+            }
+            else
+            // SI no hay nadie logueado
+            {
+                //Busco el usuario en la base de datos
+                usuario = RNUsuario.buscar(modelo.nombreUsuario, modelo.password);
                 if (usuario == null)
-                { 
+                {
                     ViewBag.MensajeErrorLogin = "Usuario o Password incorrecto.";
                     action = View("Login");
-                     
-                }                    
+                }
+                else
+                {
+                    this.UsuarioLogueado = usuario;
+                }
+            }
+         
+         
+
             
             return action;
         }

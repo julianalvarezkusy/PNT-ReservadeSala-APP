@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Web;
 using Turnos_Sala_de_Ensayo.Models;
@@ -16,6 +18,16 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                 return c.Turnos.ToList();
             }
         }
+
+        public static List<Turno> BuscarConFiltro()
+        {
+            using (Contexto c = new Contexto())
+            {
+                var FechaFin = DateTime.Today; 
+                
+                return c.Turnos.Where(o=>o.Fecha < DateTime.Today.AddDays(7)).ToList();
+            }
+        }
         public static Turno Buscar(DateTime fecha, decimal hora)
         {
             using (Contexto c = new Contexto())
@@ -25,6 +37,17 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                     o.Hora == hora).FirstOrDefault();
                     
                     
+            }
+        }
+
+        public static Turno Buscar(int idTurno)
+        {
+            using (Contexto c = new Contexto())
+            {
+                return c.Turnos
+                    .Where(o => o.Id == idTurno).FirstOrDefault();
+
+
             }
         }
 
@@ -45,7 +68,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             using (Contexto c = new Contexto())
             {
                 lista =
-                   (from db in c.Turnos
+                   (from db in c.Turnos 
                     select new TurnosModel
                     {
                         Id = db.Id,

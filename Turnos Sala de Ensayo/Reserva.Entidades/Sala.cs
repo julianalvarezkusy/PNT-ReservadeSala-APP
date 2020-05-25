@@ -10,5 +10,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
         public int Id { get; set;  }
 
         public string Nombre { get; set; }
+
+        
     }
 }

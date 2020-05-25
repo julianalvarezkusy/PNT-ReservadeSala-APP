@@ -26,6 +26,16 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             }
         }
 
+        public static ReservaDeSala Reservar(ReservaDeSala reserva)
+        {
+            using(Contexto c = new Contexto())
+            {
+                c.ReservasDeSalas.Add(reserva);
+                c.SaveChanges();
+            }
+            return reserva;
+        }
+
         //public static ReservaDeSala Agregar(ReservaDeSala ReservaDeSala)
         //{
         //    using (Contexto c = new Contexto())

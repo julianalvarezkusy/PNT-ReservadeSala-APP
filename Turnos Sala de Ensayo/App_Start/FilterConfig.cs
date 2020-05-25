@@ -8,6 +8,7 @@ namespace Turnos_Sala_de_Ensayo
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new Controllers.SessionHelper());
         }
     }
 }

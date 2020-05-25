@@ -12,5 +12,12 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
         public Usuario Usuario { get; set; }
 
         public Turno Turno { get; set; }
+
+        public ReservaDeSala(int idSala, Usuario usuario, Turno turno)
+        {
+            this.IdSala = idSala;
+            this.Usuario = usuario;
+            this.Turno = turno;
+        }
     }
 }

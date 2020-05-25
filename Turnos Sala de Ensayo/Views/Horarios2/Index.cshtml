@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+    List<SelectListItem> itemsSala = (List<SelectListItem>)ViewBag.itemsSala;
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
 
 }
@@ -9,26 +10,31 @@
 <h2>Index</h2>
 
 <div class="container" style="padding-top: 10rem;">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
 
+
+    <form method="post" action="reservar">
         <div>
-            @Html.DropDownList("datos", items, "Selecciona algo",new { @class = "form-control" })
-
-            <div>
-                <form method="get" action="CrearTurnos">
-                    <input type="submit" class="btn btn-default">
-                </form>
-            </div>
+            @Html.DropDownList("idSala", itemsSala, "Seleccionar sala", new { @class = "form-control" })
 
         </div>
+        <div style="height: 5rem;"></div>
+        <div>
+            @Html.DropDownList("idTurno", items, "Seleccionar horario", new { @class = "form-control" })
+
+
+        </div>
+
+
+
+    </form>
+
+    <div style="height: 10rem;"></div>
+
+    <div class="container">
+        <form method="get" action="CrearTurnos">
+            <input type="submit" />
+        </form>
+
     </div>
 
 

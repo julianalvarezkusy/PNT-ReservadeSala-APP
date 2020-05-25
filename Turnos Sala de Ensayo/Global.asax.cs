@@ -7,6 +7,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Turnos_Sala_de_Ensayo.Reserva.Datos;
 using Turnos_Sala_de_Ensayo.Reserva.Entidades;
+using Turnos_Sala_de_Ensayo.Reserva.RN;
 
 namespace Turnos_Sala_de_Ensayo
 {
@@ -20,8 +21,13 @@ namespace Turnos_Sala_de_Ensayo
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-            
-            
+       
+
+
+
+
+
+
 
         }
     }
