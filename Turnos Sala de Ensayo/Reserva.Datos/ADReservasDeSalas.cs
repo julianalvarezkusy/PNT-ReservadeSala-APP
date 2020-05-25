@@ -15,13 +15,13 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                 return c.ReservasDeSalas.ToList();
             }
         }
-        public static ReservaDeSala Buscar(int idSala, Turno turno)
+        public static ReservaDeSala Buscar(int idSala, int idTurno)
         {
             using (Contexto c = new Contexto())
             {
                 return c.ReservasDeSalas
                     .Where(o => o.IdSala == idSala &&
-                    o.Turno.Id == turno.Id
+                    o.IdTurno == idTurno
                     ).FirstOrDefault();
             }
         }

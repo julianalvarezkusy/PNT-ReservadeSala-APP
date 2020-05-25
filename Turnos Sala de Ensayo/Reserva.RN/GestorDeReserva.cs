@@ -11,14 +11,14 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 {
     public class GestorDeReserva
     {
-        public bool PuedoReservar(int idSala, 
-            DateTime fecha, decimal hora)
+        public static bool PuedoReservar(int idSala, 
+            int idTurno)
         {
-            var turno = ADTurnos.Buscar(fecha, hora);
-            var reserva = ADReservasDeSalas.Buscar(idSala, turno);
+            //var turno = ADTurnos.Buscar(fecha, hora);
+            var reserva = ADReservasDeSalas.Buscar(idSala, idTurno);
             if (reserva == null)
-                return false;
-            return true;
+                return true;
+            return false;
         }
 
         public static void ConstruirTurnos(DateTime fechaDesde, DateTime fechaHasta)
@@ -64,7 +64,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             {
                 return new SelectListItem()
                 {
-                    Text = db.fecha + " " + db.hora,
+                    Text = db.fecha + " ," + db.hora + "hs.",
                     Value = db.Id.ToString(),
                     Selected = false
                 };
@@ -98,10 +98,12 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             return ADTurnos.Buscar(idTurno);
         }
 
-        public static ReservaDeSala Reservar(int idSala, Usuario usuario, Turno turno)
+        public static ReservaDeSala Reservar(int idSala, int usuario, int turno)
         {
-
-            return ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno));
+            
+                return ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno));
+           
+            
         }
     }
 }

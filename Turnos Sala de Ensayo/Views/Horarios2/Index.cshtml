@@ -3,16 +3,24 @@
     ViewBag.Title = "Index";
     List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
     List<SelectListItem> itemsSala = (List<SelectListItem>)ViewBag.itemsSala;
+    
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
 
 }
 
-<h2>Index</h2>
+    <h2>@ViewBag.MensajeError</h2>
+
+<div class="container">
+    <form method="get" action="CrearTurnos">
+        <input type="submit" />
+    </form>
+
+</div>
 
 <div class="container" style="padding-top: 10rem;">
 
 
-    <form method="post" action="reservar">
+    <form method="get" action="reservar">
         <div>
             @Html.DropDownList("idSala", itemsSala, "Seleccionar sala", new { @class = "form-control" })
 
@@ -23,19 +31,17 @@
 
 
         </div>
-
-
-
+        <div>
+            
+                <input type="submit" />
+            
+        </div>
+        <label class="errorLogin">@ViewBag.MensajeError</label>
     </form>
 
     <div style="height: 10rem;"></div>
 
-    <div class="container">
-        <form method="get" action="CrearTurnos">
-            <input type="submit" />
-        </form>
 
-    </div>
 
 
 

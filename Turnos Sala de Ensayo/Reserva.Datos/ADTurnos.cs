@@ -72,7 +72,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                     select new TurnosModel
                     {
                         Id = db.Id,
-                        fecha = db.Fecha.ToString(),
+                        fecha = db.Fecha.ToString().Substring(0,11),
                         hora = db.Hora.ToString()
 
                     }).ToList();

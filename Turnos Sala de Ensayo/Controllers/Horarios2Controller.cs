@@ -23,6 +23,12 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             ViewBag.items = items;
             ViewBag.itemsSala = itemsSala;
 
+            if (TempData["mensaje"] != null)
+                ViewBag.MensajeError = TempData["mensaje"].ToString();
+
+
+
+
             return View();
         }
 
@@ -32,13 +38,28 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
         }
 
-        public void Reservar(ReservaModel modelo)
+        public ActionResult Reservar(ReservaModel modelo)
         {
-            Usuario usuario = SessionHelper.UsuarioLogueado;
+            int usuario = SessionHelper.UsuarioLogueado.Id;
+            ActionResult action = null ;
 
-            Turno turno = GestorDeReserva.BuscarTurno(modelo.IdTurno);
 
-            GestorDeReserva.Reservar(modelo.IdSala, usuario, turno);
+            //Turno turno = GestorDeReserva.BuscarTurno(modelo.IdTurno);
+            if(GestorDeReserva.PuedoReservar(modelo.IdSala, modelo.IdTurno))
+                {
+                GestorDeReserva.Reservar(modelo.IdSala, usuario, modelo.IdTurno);
+                action = RedirectToAction("Index", "Home");
+
+            } 
+        else
+            {
+                TempData["mensaje"] = "Seleccione otro Horario.";
+                action = RedirectToAction("Index", "Horarios2");
+            }
+
+            return action;
         }
+
+
     }
 }
