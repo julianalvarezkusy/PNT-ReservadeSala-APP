@@ -64,23 +64,27 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 
         public static List<Models.TurnosModel> devolverLista()
         {
-            List<Models.TurnosModel> lista = null;
+            
             using (Contexto c = new Contexto())
             {
-                lista =
+                List<Models.TurnosModel> listaTurnosAPartirDeHoy = null;
+                listaTurnosAPartirDeHoy =
                    (from db in c.Turnos 
+                    where db.Fecha >= DateTime.Now
                     select new TurnosModel
                     {
                         Id = db.Id,
                         fecha = db.Fecha.ToString().Substring(0,11),
                         hora = db.Hora.ToString()
 
-                    }).ToList();
-
+                    })
+                    .ToList();
+                var listaIdTurnos = listaTurnosAPartirDeHoy.Select(o => o.Id).ToList();
+                var listaReservasTurnosApartirDeHoy = c.ReservasDeSalas.Where(o => listaIdTurnos.Contains(o.IdTurno)).ToList();
+                var listaIdTurnosYaOcupados = listaReservasTurnosApartirDeHoy.Select(o => o.IdTurno).ToList();
+                return listaTurnosAPartirDeHoy.Where(o => !listaIdTurnosYaOcupados.Contains(o.Id)).ToList();
             }
-
-
-            return lista;
+            
         }
 
     }
