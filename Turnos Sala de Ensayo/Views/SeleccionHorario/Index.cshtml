@@ -5,89 +5,117 @@
 }
 
 
-<div class="container horarios">
-    <h1>Seleccioná el horario</h1>
-    <table class="table table-striped">
 
-        <!--Lunes-->
-        <tr>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-            <th>Sábado</th>
-            <th>Domingo</th>
+    
 
+    <div class="container horarios">
+        <h1>Seleccioná la fecha</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="~/Content/img/left.svg" />
+                </div>
+                <div class="col-md-8 fechas">
 
-        </tr>
-        <tr>
+                    
+                    <h4>@ViewBag.Lunes</h4>
 
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">18:00</button></td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">19:00</button></td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">20:00</button></td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">21:00</button></td>
-
-        </tr>
-
-        <tr>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">22:00</button></td>
+                </div>
+                <div class="col-md-2">
+                    <img src="~/Content/img/arrow.svg" />
+                </div>
 
 
+            </div>
+        <h1>Seleccioná el horario</h1>
+        <table class="table table-striped">
 
-        </tr>
-
-        <tr>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-            <td><button class="btn btn-outline-primary btn-block">23:00</button></td>
-
-
-
-        </tr>
-
+            <!--Lunes-->
+            <tr>
+                <th>Horario</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
 
 
-    </table>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td><label label>Ocupado</label></td>
+                <td><label>Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+            </tr>
+            <tr>
+                <td>19:00</td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+            </tr>
+            <tr>
+                <td>20:00</td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+            </tr>
+            <tr>
+                <td>21:00</td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
 
+            </tr>
+
+            <tr>
+                <td>22:00</td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+
+
+
+            </tr>
+
+            <tr>
+                <td>23:00</td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+                <td><label  >Ocupado</label></td>
+
+
+
+            </tr>
+
+
+
+        </table>
+
+    </div>
 </div>

@@ -47,18 +47,18 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             } while (fecha != fechaHasta);
         }
 
-        private static List<Models.TurnosModel> DevolverListaTurnos()
+        private static List<Models.TurnosModel> DevolverListaTurnos(int idSala)
         {
 
-           return ADTurnos.devolverLista();
+           return ADTurnos.devolverLista(idSala);
 
         }
 
-        public static List<SelectListItem> DevolverListaItems()
+        public static List<SelectListItem> DevolverListaItems(int idSala)
         {
 
             //List<Models.TurnosModel> lista = DevolverListaTurnos();
-            List<Models.TurnosModel> lista = ADTurnos.devolverLista();
+            List<Models.TurnosModel> lista = ADTurnos.devolverLista(idSala);
             List<SelectListItem> items = null;
             items = lista.ConvertAll(db =>
             {
@@ -104,6 +104,18 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
                 return ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno));
            
             
+        }
+
+        public static DateTime DameLunes(DateTime fechaActual)
+        {
+            var diaActual = fechaActual.DayOfWeek;
+            
+            while (!diaActual.Equals(DayOfWeek.Monday))
+            {
+                fechaActual = fechaActual.AddDays(-1);
+                diaActual = fechaActual.DayOfWeek;
+            }
+            return fechaActual;
         }
     }
 }
