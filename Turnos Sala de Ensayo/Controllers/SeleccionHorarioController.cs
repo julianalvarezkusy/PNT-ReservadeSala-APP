@@ -11,13 +11,18 @@ namespace Turnos_Sala_de_Ensayo.Controllers
     public class SeleccionHorarioController : Controller
     {
         // GET: SeleccionHorario
-        public ActionResult Index()
+        public ActionResult Index(int idSala)
         {
+
             var hoy = GestorDeReserva.DameLunes(DateTime.Today);
             
 
             var fechaFin = hoy.AddDays(6);
 
+            List<Models.TurnosModel> Horarios = GestorDeReserva.DevolverListaTurnos(idSala, hoy, fechaFin);
+
+            ViewBag.Horarios = Horarios;
+            
             ViewBag.Lunes = hoy + "||"+ fechaFin;
 
 

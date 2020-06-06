@@ -26,7 +26,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             DateTime fecha = fechaDesde;
             do
             {
-                for (int i = 16; i <= 23; i++)
+                for (int i = 18; i <= 23; i++)
                 {
                     ADTurnos.Agregar(
                         new Entidades.Turno()
@@ -47,6 +47,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             } while (fecha != fechaHasta);
         }
 
+        //Método deprecado
         private static List<Models.TurnosModel> DevolverListaTurnos(int idSala)
         {
 
@@ -54,11 +55,36 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         }
 
+        public static List<Models.TurnosModel> DevolverListaTurnos(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            return ADTurnos.devolverLista(idSala, fechaIni, fechaFin);
+        }
+
+        //Método deprecado
         public static List<SelectListItem> DevolverListaItems(int idSala)
         {
 
             //List<Models.TurnosModel> lista = DevolverListaTurnos();
             List<Models.TurnosModel> lista = ADTurnos.devolverLista(idSala);
+            List<SelectListItem> items = null;
+            items = lista.ConvertAll(db =>
+            {
+                return new SelectListItem()
+                {
+                    Text = db.fecha + " ," + db.hora + "hs.",
+                    Value = db.Id.ToString(),
+                    Selected = false
+                };
+
+            });
+
+
+            return items;
+        }
+
+        public static List<SelectListItem> DevolverListaItems(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            List<Models.TurnosModel> lista = ADTurnos.devolverLista(idSala,fechaIni, fechaFin);
             List<SelectListItem> items = null;
             items = lista.ConvertAll(db =>
             {
