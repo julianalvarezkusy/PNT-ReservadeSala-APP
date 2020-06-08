@@ -62,7 +62,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             
         }
 
-        public static List<Models.TurnosModel> devolverLista()
+        public static List<Models.TurnosModel> devolverLista(int idSala)
         {
             
             using (Contexto c = new Contexto())
@@ -79,12 +79,43 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 
                     })
                     .ToList();
+
+                
                 var listaIdTurnos = listaTurnosAPartirDeHoy.Select(o => o.Id).ToList();
                 var listaReservasTurnosApartirDeHoy = c.ReservasDeSalas.Where(o => listaIdTurnos.Contains(o.IdTurno)).ToList();
-                var listaIdTurnosYaOcupados = listaReservasTurnosApartirDeHoy.Select(o => o.IdTurno).ToList();
+                var listaReservasTurnosAPartirDeHoyPorSala = listaReservasTurnosApartirDeHoy.Where(o => o.IdSala == idSala).ToList();
+                var listaIdTurnosYaOcupados = listaReservasTurnosAPartirDeHoyPorSala.Select(o => o.IdTurno).ToList();
                 return listaTurnosAPartirDeHoy.Where(o => !listaIdTurnosYaOcupados.Contains(o.Id)).ToList();
             }
             
+        }
+
+        public static List<Models.TurnosModel> devolverLista(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+
+            using (Contexto c = new Contexto())
+            {
+                List<Models.TurnosModel> listaTurnosAPartirDeHoy = null;
+                listaTurnosAPartirDeHoy =
+                   (from db in c.Turnos
+                    where db.Fecha >= fechaIni && db.Fecha <= fechaFin
+                    select new TurnosModel
+                    {
+                        Id = db.Id,
+                        fecha = db.Fecha.ToString().Substring(0, 11),
+                        hora = db.Hora.ToString()
+
+                    })
+                    .ToList();
+
+
+                var listaIdTurnos = listaTurnosAPartirDeHoy.Select(o => o.Id).ToList();
+                var listaReservasTurnosApartirDeHoy = c.ReservasDeSalas.Where(o => listaIdTurnos.Contains(o.IdTurno)).ToList();
+                var listaReservasTurnosAPartirDeHoyPorSala = listaReservasTurnosApartirDeHoy.Where(o => o.IdSala == idSala).ToList();
+                var listaIdTurnosYaOcupados = listaReservasTurnosAPartirDeHoyPorSala.Select(o => o.IdTurno).ToList();
+                return listaTurnosAPartirDeHoy.Where(o => !listaIdTurnosYaOcupados.Contains(o.Id)).ToList();
+            }
+
         }
 
     }

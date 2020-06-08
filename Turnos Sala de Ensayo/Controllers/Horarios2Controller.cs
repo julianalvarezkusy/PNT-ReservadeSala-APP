@@ -13,13 +13,14 @@ namespace Turnos_Sala_de_Ensayo.Controllers
     public class Horarios2Controller : Controller
     {
         // GET: Horarios2
-        public ActionResult Index()
+        public ActionResult Index(int idSala)
         {
 
-           List<SelectListItem> items = GestorDeReserva.DevolverListaItems();
+           List<SelectListItem> items = GestorDeReserva.DevolverListaItems(idSala);
 
             List<SelectListItem> itemsSala = GestorDeReserva.DevolverListaSalas();
 
+            ViewBag.idSala = idSala;
             ViewBag.items = items;
             ViewBag.itemsSala = itemsSala;
 

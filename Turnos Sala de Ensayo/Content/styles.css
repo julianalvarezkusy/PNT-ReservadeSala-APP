@@ -731,3 +731,14 @@ input[type=text] {
     padding-top: 7rem;
     padding-bottom: 2.5rem;
 }
+
+.tr{
+    color: red;
+}
+
+.row{
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+}
+

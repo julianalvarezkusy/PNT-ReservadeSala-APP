@@ -161,11 +161,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\arrow.svg" />
     <Content Include="Content\img\background-rock.jpg" />
     <Content Include="Content\img\bateria.jpg" />
     <Content Include="Content\img\drums.svg" />
     <Content Include="Content\img\facebook.svg" />
     <Content Include="Content\img\gesture.svg" />
+    <Content Include="Content\img\left.svg" />
     <Content Include="Content\img\miLogo.png" />
     <Content Include="Content\img\marshall-wallpaper.jpg" />
     <Content Include="Content\img\music.svg" />
