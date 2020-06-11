@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AgregarUsuarioController.cs" />
+    <Compile Include="Controllers\ConfirmarReservaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Horarios2Controller.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -214,8 +215,8 @@
     <Content Include="Views\Pago\Index.cshtml" />
     <Content Include="Views\AgregarUsuario\Index.cshtml" />
     <Content Include="Views\SeleccionHorario\Index.cshtml" />
-    <Content Include="Views\SeleccionHorario\Horarios.cshtml" />
     <Content Include="Views\Horarios2\Index.cshtml" />
+    <Content Include="Views\ConfirmarReserva\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,10 +23,11 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         public static void ConstruirTurnos(DateTime fechaDesde, DateTime fechaHasta)
         {
-            DateTime fecha = fechaDesde;
+            DateTime fecha = DameLunes(fechaDesde);
+            DateTime fechaHastaNueva = fecha.AddDays(6);
             do
             {
-                for (int i = 16; i <= 23; i++)
+                for (int i = 18; i <= 23; i++)
                 {
                     ADTurnos.Agregar(
                         new Entidades.Turno()
@@ -44,9 +45,10 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
                     //    );
                 }
                 fecha = fecha.AddDays(1);
-            } while (fecha != fechaHasta);
+            } while (fecha != fechaHastaNueva);
         }
 
+        //Método deprecado
         private static List<Models.TurnosModel> DevolverListaTurnos(int idSala)
         {
 
@@ -54,6 +56,12 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         }
 
+        public static List<Models.TurnosModel> DevolverListaTurnos(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            return ADTurnos.devolverLista(idSala, fechaIni, fechaFin);
+        }
+
+        //Método deprecado
         public static List<SelectListItem> DevolverListaItems(int idSala)
         {
 
@@ -73,6 +81,100 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
 
             return items;
+        }
+
+        public static List<SelectListItem> DevolverListaItems(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            List<Models.TurnosModel> lista = ADTurnos.devolverLista(idSala,fechaIni, fechaFin);
+            List<SelectListItem> items = null;
+            items = lista.ConvertAll(db =>
+            {
+                return new SelectListItem()
+                {
+                    Text = db.fecha + " ," + db.hora + "hs.",
+                    Value = db.Id.ToString(),
+                    Selected = false
+                };
+
+            });
+
+
+            return items;
+        }
+
+        public static Models.TurnosModel[,] DevolverMatrizDeTurnos(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            List<Models.TurnosModel> listaDeTurnos = ADTurnos.devolverLista( idSala,  fechaIni, fechaFin);
+            Models.TurnosModel[,] matrizDeTurnos = new Models.TurnosModel[6,7];
+
+            int PosicionDia;
+            int PosicionHora;
+            
+            foreach(Models.TurnosModel turno in listaDeTurnos)
+            {
+                switch (Convert.ToDateTime(turno.fecha).DayOfWeek)
+                {
+                    case DayOfWeek.Monday:
+                        PosicionDia = 0;
+                        break;
+                    case DayOfWeek.Tuesday:
+                        PosicionDia = 1;
+                        break;
+                    case DayOfWeek.Wednesday:
+                        PosicionDia = 2;
+                        break;
+                    case DayOfWeek.Thursday:
+                        PosicionDia = 3;
+                        break;
+                    case DayOfWeek.Friday:
+                        PosicionDia = 4;
+                        break;
+                    case DayOfWeek.Saturday:
+                        PosicionDia = 5;
+                        break;
+                    case DayOfWeek.Sunday:
+                        PosicionDia = 6;
+                        break;
+                    default:
+                        PosicionDia = -1;
+                        break;
+                }
+                decimal hora = Convert.ToDecimal(turno.hora);
+                switch (turno.hora)
+                {
+                    case "18.00":
+                        PosicionHora = 0;
+                        break;
+                    case "19.00":
+                        PosicionHora = 1;
+                        break;
+                    case "20.00":
+                        PosicionHora = 2;
+                        break;
+                    case "21.00":
+                        PosicionHora = 3;
+                        break;
+                    case "22.00":
+                        PosicionHora = 4;
+                        break;
+                    case "23.00":
+                        PosicionHora = 5;
+                        break;
+                    default:
+                        PosicionHora = -1;
+                        break;
+                }
+
+                if(PosicionDia != -1 && PosicionHora != -1)
+                {
+                    matrizDeTurnos[PosicionHora, PosicionDia] = turno;
+                }
+                
+            }
+
+
+            return matrizDeTurnos;
+
         }
 
         public static List<SelectListItem> DevolverListaSalas()

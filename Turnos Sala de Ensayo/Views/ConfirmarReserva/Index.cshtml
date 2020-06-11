@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+}
+
+    <div class="container" style="padding-top: 10rem;padding-bottom: 5rem;">
+
+        <h1>Confirmar Datos</h1>
+
+
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <td>Sala</td>
+                    <td>@ViewBag.idSala</td>
+                </tr>
+                <tr>
+                    <td>Turno</td>
+                    <td>@ViewBag.fechaTurno</td>
+
+                </tr>
+                <tr>
+                    <td>Hora del Turno</td>
+                    <td>@ViewBag.horaTurno</td>
+                </tr>
+
+            </table>
+            <form method="get" action="reservar">
+                <input type="hidden" id="IdSala" name="IdSala"value="@ViewBag.idSala">
+                <input type="hidden" id="IdTurno" name="IdTurno" value="@ViewBag.idTurno">
+                
+
+                <input class="btn btn-danger" type="submit">Confirmar</input>
+            </form>
+            
+
+        </div>
+    </div>
