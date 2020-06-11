@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Mvc;
+using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 using Turnos_Sala_de_Ensayo.Reserva.RN;
 
 namespace Turnos_Sala_de_Ensayo.Controllers
@@ -21,7 +22,13 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
             List<Models.TurnosModel> Horarios = GestorDeReserva.DevolverListaTurnos(idSala, hoy, fechaFin);
 
+            Models.TurnosModel[,] matrizDeTurnos = GestorDeReserva.DevolverMatrizDeTurnos(idSala, hoy, fechaFin);
+
             ViewBag.Horarios = Horarios;
+
+            ViewBag.MatrizTurnos = matrizDeTurnos;
+
+            ViewBag.idSala = idSala;
             
             ViewBag.Lunes = hoy + "||"+ fechaFin;
 

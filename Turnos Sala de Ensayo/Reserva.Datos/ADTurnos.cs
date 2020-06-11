@@ -118,5 +118,33 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 
         }
 
+        public static List<Turno> devolverListaDeTurnos(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+
+            using (Contexto c = new Contexto())
+            {
+                List<Turno> listaTurnosAPartirDeHoy = null;
+                listaTurnosAPartirDeHoy =
+                   (from db in c.Turnos
+                    where db.Fecha >= fechaIni && db.Fecha <= fechaFin
+                    select new Turno
+                    {
+                        Id = db.Id,
+                        Fecha = db.Fecha,
+                        Hora = db.Hora
+
+                    })
+                    .ToList();
+
+
+                var listaIdTurnos = listaTurnosAPartirDeHoy.Select(o => o.Id).ToList();
+                var listaReservasTurnosApartirDeHoy = c.ReservasDeSalas.Where(o => listaIdTurnos.Contains(o.IdTurno)).ToList();
+                var listaReservasTurnosAPartirDeHoyPorSala = listaReservasTurnosApartirDeHoy.Where(o => o.IdSala == idSala).ToList();
+                var listaIdTurnosYaOcupados = listaReservasTurnosAPartirDeHoyPorSala.Select(o => o.IdTurno).ToList();
+                return listaTurnosAPartirDeHoy.Where(o => !listaIdTurnosYaOcupados.Contains(o.Id)).ToList();
+            }
+
+        }
+
     }
 }

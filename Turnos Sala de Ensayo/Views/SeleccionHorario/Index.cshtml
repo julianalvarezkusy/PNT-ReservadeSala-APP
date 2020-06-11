@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    Turnos_Sala_de_Ensayo.Models.TurnosModel[,] turnos = ViewBag.MatrizTurnos;
 }
 
 
@@ -14,11 +15,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <img src="~/Content/img/left.svg" />
+                    <button type="button" onclick="obtenerDatos()" class="flecha"><img src="~/Content/img/left.svg" /></button>
                 </div>
                 <div class="col-md-8 fechas">
 
-                    
+
                     <h4>@ViewBag.Lunes</h4>
 
                 </div>
@@ -28,109 +29,83 @@
 
 
             </div>
-        <h1>Seleccioná el horario</h1>
-        <table class="table table-striped">
+            <h1>Seleccioná el horario</h1>
 
-            <!--Lunes-->
-            <tr>
-                <th>Horario</th>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
-                <th>Sábado</th>
-                <th>Domingo</th>
+            <table class="table table-striped">
+                @for(var i = 0; i < 6; i++)
+                {
+                <tr>
+                    @for (var j = 0; j < 7; j++)
+                    {
+                        if (turnos[i, j] == null)
+                        {
+                            <td><button class="btn btn-outline-secondary" disabled>Ocupado</button></td>
+                        }
+                        else
+                        {
+                            <td><a class="btn btn-outline-primary" href="~/confirmarReserva/index?idTurno=@turnos[i,j].Id&idSala=@ViewBag.idSala">Libre</a></td>
+                        }
 
-
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td id="1"><label  >Ocupado</label></td>
-                <td id="7"><label >Ocupado</label></td>
-                <td id="14"><label id="">Ocupado</label></td>
-                <td id="21"><label  >Ocupado</label></td>
-                <td id="28"><label  >Ocupado</label></td>
-                <td id="35"><label  >Ocupado</label></td>
-                <td id="42"><label  >Ocupado</label></td>
-            </tr>
-            <tr>
-                <td>19:00</td>
-                <td id="2"><label  >Ocupado</label></td>
-                <td id="8"><label  >Ocupado</label></td>
-                <td id="15"><label  >Ocupado</label></td>
-                <td id="22"><label  >Ocupado</label></td>
-                <td id="29"><label  >Ocupado</label></td>
-                <td id="36"><label  >Ocupado</label></td>
-                <td id="43"><label  >Ocupado</label></td>
-            </tr>
-            <tr>
-                <td>20:00</td>
-                <td id="3"><label  >Ocupado</label></td>
-                <td id="9"><label  >Ocupado</label></td>
-                <td id="16"><label  >Ocupado</label></td>
-                <td id="23"><label  >Ocupado</label></td>
-                <td id="30"><label  >Ocupado</label></td>
-                <td id="37"><label  >Ocupado</label></td>
-                <td id="44"><label  >Ocupado</label></td>
-            </tr>
-            <tr>
-                <td>21:00</td>
-                <td id="4"><label  >Ocupado</label></td>
-                <td id="10"><label  >Ocupado</label></td>
-                <td id="17"><label  >Ocupado</label></td>
-                <td id="24"><label  >Ocupado</label></td>
-                <td id="31"><label  >Ocupado</label></td>
-                <td id="38"><label  >Ocupado</label></td>
-                <td id="45"><label  >Ocupado</label></td>
-
-            </tr>
-
-            <tr>
-                <td>22:00</td>
-                <td id="5"><label  >Ocupado</label></td>
-                <td id="11"><label  >Ocupado</label></td>
-                <td id="18"><label  >Ocupado</label></td>
-                <td id="25"><label  >Ocupado</label></td>
-                <td id="32"><label  >Ocupado</label></td>
-                <td id="39"><label  >Ocupado</label></td>
-                <td id="45"><label  >Ocupado</label></td>
+                    }
+                </tr>
+                }
 
 
 
-            </tr>
-
-            <tr>
-                <td>23:00</td>
-                <td id="6"><label  >Ocupado</label></td>
-                <td id="12"><label  >Ocupado</label></td>
-                <td id="19"><label  >Ocupado</label></td>
-                <td id="26"><label  >Ocupado</label></td>
-                <td id="33"><label  >Ocupado</label></td>
-                <td id="40"><label  >Ocupado</label></td>
-                <td id="46"><label  >Ocupado</label></td>
 
 
+            </table>
+                <div class="row">
+                    <button class="btn btn-outline-primary" type="button" onclick="obtenerDatos()">Botoncito</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-outline-secondary" type="button" onclick="reiniciar()">Reiniciar</button>
+                </div>
 
-            </tr>
-
-
-
-        </table>
-            <div class="row">
-                <button type="button" onclick="obtenerDatos()">Botoncito</button>
-            </div>
-
-    </div>
+        </div>
 
         <script>
             function obtenerDatos() {
-                var posicion = document.getElementById("1");
-                posicion.innerHTML = "<button>Disponible</button>";
-                alert(posicion);
+                var posicion
+
+                var miArray = new Array(42);
+
+                for (var i = 0; i < miArray.length; i++) {
+                    if (i == 0) {
+                        miArray[i] = 0;
+                    } else if (i % 2 != 0) {
+                        miArray[i] = 1;
+                    }
+                }
+
+
+                for (var i = 1; i < 43; i++) {
+                    posicion = document.getElementById(i.toString());
+
+                    if (miArray[i - 1] == 1) {
+                        posicion.innerHTML = "<button class = \"btn btn-outline-primary\">Disponible</button>";
+                    }
+                   
+
+                    console.log(posicion + i);
+                }
+                
+                alert("Listo");
 
             }
 
+            function reiniciar() {
+                var posicion
+
+                for (var i = 1; i < 46; i++) {
+                    posicion = document.getElementById(i.toString());
+                    posicion.innerHTML = "<label  >Ocupado</label>";
+                    console.log(posicion + i);
+                }
+
+                alert("Listo");
+
+            }
 
         </script>
 
