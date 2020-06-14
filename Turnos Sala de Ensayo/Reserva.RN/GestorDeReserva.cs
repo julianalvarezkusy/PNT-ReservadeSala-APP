@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Turnos_Sala_de_Ensayo.Models;
 using Turnos_Sala_de_Ensayo.Reserva.Datos;
 using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 
@@ -48,6 +49,35 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             } while (fecha != fechaHastaNueva);
         }
 
+        public static void ConstruirTurnos()
+        {
+            DateTime fechaDesde = ObtenerUltimaFecha();
+
+            DateTime fechaHastaNueva = fechaDesde.AddDays(30);
+            do
+            {
+                for (int i = 18; i <= 23; i++)
+                {
+                    ADTurnos.Agregar(
+                        new Entidades.Turno()
+                        {
+                            Fecha = fechaDesde,
+                            Hora = i
+                        }
+                        );
+
+                }
+                fechaDesde = fechaDesde.AddDays(1);
+            } while (fechaDesde != fechaHastaNueva);
+        }
+
+        private  static DateTime ObtenerUltimaFecha()
+        {
+            DateTime UltimaFecha = ADTurnos.ObtenerUltimaFecha();
+
+            return UltimaFecha;
+        }
+
         //Método deprecado
         private static List<Models.TurnosModel> DevolverListaTurnos(int idSala)
         {
@@ -83,6 +113,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             return items;
         }
 
+        //Método deprecado
         public static List<SelectListItem> DevolverListaItems(int idSala, DateTime fechaIni, DateTime fechaFin)
         {
             List<Models.TurnosModel> lista = ADTurnos.devolverLista(idSala,fechaIni, fechaFin);
@@ -177,6 +208,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         }
 
+        //Método deprecado
         public static List<SelectListItem> DevolverListaSalas()
         {
             List<Sala> listaDeSalas = ADSalas.Buscar();
@@ -219,5 +251,16 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             }
             return fechaActual;
         }
+
+        public static Models.TurnosModel[,] AvanzarSemana(int idSala, DateTime fechaDesde)
+        {
+            DateTime FechaInicio = fechaDesde.AddDays(1);
+            DateTime FechaFin = FechaInicio.AddDays(6);
+
+            Models.TurnosModel[,] listaTurnos = DevolverMatrizDeTurnos(idSala, FechaInicio, FechaFin);
+
+            return listaTurnos;
+            
+         }
     }
 }

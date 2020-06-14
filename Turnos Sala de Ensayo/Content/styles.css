@@ -747,3 +747,13 @@ input[type=text] {
 .flecha{
 
 }
+
+.botonHorario {
+    width: 7rem;
+    height: 3rem;
+    align-content: center;
+}
+
+.datoTabla{
+    text-align: center;
+}
