@@ -25,13 +25,14 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             modelo.FechaFin = modelo.FechaInicio.AddDays(6);
             modelo.MatrizDeTurnos = GestorDeReserva.DevolverMatrizDeTurnos(modelo.IdSala, modelo.FechaInicio, modelo.FechaFin);
 
-            ViewBag.Lunes = modelo.FechaInicio.ToString().Substring(0,8) + "||" + modelo.FechaFin.ToString().Substring(0,8);
+            ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);
             ViewBag.idSala = modelo.IdSala;
             ViewBag.MatrizTurnos = modelo.MatrizDeTurnos;
             ViewBag.FechaFin = modelo.FechaFin;
             ViewBag.FechaInicio = modelo.FechaInicio;
             ViewBag.WeekDays = WeekDays();
             ViewBag.TurnHours = TurnHours();
+            ViewBag.Dates = GetWeekDays(modelo.FechaInicio, modelo.FechaFin);
 
             return View();
         }
@@ -47,9 +48,10 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             ViewBag.idSala = modelo.IdSala;
             ViewBag.FechaInicio = modelo.FechaInicio;
             ViewBag.FechaFin = modelo.FechaFin;
-            ViewBag.Lunes = modelo.FechaInicio.ToString().Substring(0,8) + "||" + modelo.FechaFin.ToString().Substring(0,8);
+            ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);
             ViewBag.WeekDays = WeekDays();
             ViewBag.TurnHours = TurnHours();
+            ViewBag.Dates = GetWeekDays(modelo.FechaInicio, modelo.FechaFin);
 
             return View("Index", modelo);
         }
@@ -65,9 +67,10 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             ViewBag.idSala = modelo.IdSala;
             ViewBag.FechaInicio = modelo.FechaInicio;
             ViewBag.FechaFin = modelo.FechaFin;
-            ViewBag.Lunes = modelo.FechaInicio.ToString().Substring(0,8) + "||" + modelo.FechaFin.ToString().Substring(0,8);
+            ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);
             ViewBag.WeekDays = WeekDays();
             ViewBag.TurnHours = TurnHours();
+            ViewBag.Dates = GetWeekDays(modelo.FechaInicio, modelo.FechaFin);
 
             return View("Index", modelo);
         }
@@ -81,6 +84,21 @@ namespace Turnos_Sala_de_Ensayo.Controllers
         private String[] TurnHours()
         {
             return new String[] { "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
+        }
+
+        private String[] GetWeekDays(DateTime fechaInicio, DateTime fechaFin)
+        {
+            DateTime fecha = fechaInicio;
+            String[] Dias = new string[(fechaFin - fechaInicio).Days +2];
+            Dias[0] = "";
+            for(int i = 1; i < Dias.Length; i++)
+            {
+                Dias[i] = DateFormat.ShortDateFormater(fecha);
+                fecha = fecha.AddDays(1);
+            }
+
+            return Dias;
+
         }
 
     }

@@ -154,6 +154,7 @@
     <Compile Include="Reserva.Entidades\Turno.cs" />
     <Compile Include="Reserva.Entidades\Sala.cs" />
     <Compile Include="Reserva.Entidades\Usuario.cs" />
+    <Compile Include="Reserva.RN\DateFormat.cs" />
     <Compile Include="Reserva.RN\GestorDeReserva.cs" />
     <Compile Include="Reserva.RN\RNSalas.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
@@ -221,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DateFormat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

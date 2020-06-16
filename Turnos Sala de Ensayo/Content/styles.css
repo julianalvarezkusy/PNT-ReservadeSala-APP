@@ -757,3 +757,15 @@ input[type=text] {
 .datoTabla{
     text-align: center;
 }
+
+input[type=image]{
+    height: 5rem;
+}
+
+.fechas {
+    text-align: center;
+}
+
+.confirmar {
+    text-align: center;
+}

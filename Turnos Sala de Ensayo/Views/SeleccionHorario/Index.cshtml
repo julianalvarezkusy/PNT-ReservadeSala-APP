@@ -8,6 +8,7 @@
 
     String[] WeekDays = ViewBag.WeekDays;
     String[] TurnHours = ViewBag.TurnHours;
+    String[] Dias = ViewBag.Dates;
 
 
 }
@@ -28,14 +29,14 @@
                         <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
                         <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
                         <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
-                        <input type="submit"><img src="~/Content/img/arrow.svg" />
+                        <input type="image"src="~/Content/img/left.svg">
                     </form>
-                    <button type="button" onclick="obtenerDatos()" class="flecha"><img src="~/Content/img/left.svg" /></button>
+                   
                 </div>
                 <div class="col-md-8 fechas">
 
 
-                    <h4>@ViewBag.Lunes</h4>
+                    <h4 id="fechas">@ViewBag.Lunes</h4>
 
                 </div>
                 <div class="col-md-2">
@@ -43,7 +44,7 @@
                         <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
                         <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
                         <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
-                        <input type="submit"><img src="~/Content/img/arrow.svg" />
+                        <input type="image" src="~/Content/img/arrow.svg">
                     </form>
                         </div>
 
@@ -55,7 +56,8 @@
                 <tr>
                     @for (var j = 0; j < 8; j++)
                     {
-                        <th>@WeekDays[j]</th>
+                    <th>@WeekDays[j] @Dias[j]</th>
+                        
                     }
                 </tr>
                 @for (var i = 0; i < 6; i++)
