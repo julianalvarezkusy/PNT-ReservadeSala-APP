@@ -35,7 +35,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
         public void CrearTurnos()
         {
-            Reserva.RN.GestorDeReserva.ConstruirTurnos(DateTime.Today, DateTime.Today.AddDays(+10));
+            Reserva.RN.GestorDeReserva.ConstruirTurnos();
 
         }
 

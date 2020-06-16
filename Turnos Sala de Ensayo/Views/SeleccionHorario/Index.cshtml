@@ -3,6 +3,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
     Turnos_Sala_de_Ensayo.Models.TurnosModel[,] turnos = ViewBag.MatrizTurnos;
+    DateTime FechaFin = Convert.ToDateTime(TempData["FechaFin"]);
+    TempData.Keep("FechaFin");
+
+    String[] WeekDays = ViewBag.WeekDays;
+    String[] TurnHours = ViewBag.TurnHours;
+    String[] Dias = ViewBag.Dates;
+
+
 }
 
 
@@ -11,43 +19,65 @@
 
 
     <div class="container horarios">
+        <h1>
+            Seleccionaste la Sala: @ViewBag.idSala</h1>
         <h1>Seleccioná la fecha</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <button type="button" onclick="obtenerDatos()" class="flecha"><img src="~/Content/img/left.svg" /></button>
+                    <form method="post" action="RetrocederSemana">
+                        <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
+                        <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
+                        <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
+                        <input type="image"src="~/Content/img/left.svg">
+                    </form>
+                   
                 </div>
                 <div class="col-md-8 fechas">
 
 
-                    <h4>@ViewBag.Lunes</h4>
+                    <h4 id="fechas">@ViewBag.Lunes</h4>
 
                 </div>
                 <div class="col-md-2">
-                    <img src="~/Content/img/arrow.svg" />
-                </div>
+                    <form method="post" action="AvanzarSemana">
+                        <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
+                        <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
+                        <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
+                        <input type="image" src="~/Content/img/arrow.svg">
+                    </form>
+                        </div>
 
 
             </div>
             <h1>Seleccioná el horario</h1>
 
             <table class="table table-striped">
-                @for(var i = 0; i < 6; i++)
-                {
                 <tr>
-                    @for (var j = 0; j < 7; j++)
+                    @for (var j = 0; j < 8; j++)
                     {
-                        if (turnos[i, j] == null)
-                        {
-                            <td><button class="btn btn-outline-secondary" disabled>Ocupado</button></td>
-                        }
-                        else
-                        {
-                            <td><a class="btn btn-outline-primary" href="~/confirmarReserva/index?idTurno=@turnos[i,j].Id&idSala=@ViewBag.idSala">Libre</a></td>
-                        }
-
+                    <th>@WeekDays[j] @Dias[j]</th>
+                        
                     }
                 </tr>
+                @for (var i = 0; i < 6; i++)
+                {
+
+                    <tr>
+                        <td class="datoTabla">@TurnHours[i]</td>
+                        @for (var j = 0; j < 7; j++)
+                        {
+                            if (turnos[i, j] == null)
+                            {
+                                <td class="datoTabla"><button class="btn btn-outline-secondary botonHorario" disabled>Ocupado</button></td>
+                            }
+                            else
+                            {
+                                <td class="datoTabla"><a class="btn btn-outline-primary botonHorario" href="~/confirmarReserva/index?idTurno=@turnos[i,j].Id&idSala=@ViewBag.idSala">Libre</a></td>
+                            }
+
+                        }
+                    </tr>
                 }
 
 
@@ -66,46 +96,46 @@
 
         <script>
             function obtenerDatos() {
-                var posicion
+            var posicion
 
                 var miArray = new Array(42);
 
-                for (var i = 0; i < miArray.length; i++) {
-                    if (i == 0) {
-                        miArray[i] = 0;
-                    } else if (i % 2 != 0) {
-                        miArray[i] = 1;
-                    }
+            for (var i = 0; i < miArray.length; i++) {
+                if (i == 0) {
+                    miArray[i] = 0;
+                } else if (i % 2 != 0) {
+                    miArray[i] = 1;
                 }
-
-
-                for (var i = 1; i < 43; i++) {
-                    posicion = document.getElementById(i.toString());
-
-                    if (miArray[i - 1] == 1) {
-                        posicion.innerHTML = "<button class = \"btn btn-outline-primary\">Disponible</button>";
-                    }
-                   
-
-                    console.log(posicion + i);
-                }
-                
-                alert("Listo");
-
             }
 
-            function reiniciar() {
-                var posicion
+
+            for (var i = 1; i < 43; i++) {
+                posicion = document.getElementById(i.toString());
+
+                if (miArray[i - 1] == 1) {
+                    posicion.innerHTML = "<button class = \"btn btn-outline-primary\">Disponible</button>";
+                }
+
+
+                console.log(posicion + i);
+            }
+
+            alert("Listo");
+
+        }
+
+        function reiniciar() {
+            var posicion
 
                 for (var i = 1; i < 46; i++) {
-                    posicion = document.getElementById(i.toString());
-                    posicion.innerHTML = "<label  >Ocupado</label>";
-                    console.log(posicion + i);
-                }
-
-                alert("Listo");
-
+                posicion = document.getElementById(i.toString());
+                posicion.innerHTML = "<label  >Ocupado</label>";
+                console.log(posicion + i);
             }
+
+            alert("Listo");
+
+        }
 
         </script>
 

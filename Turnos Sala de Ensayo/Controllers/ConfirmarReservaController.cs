@@ -15,7 +15,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             var fecha = Turnos_Sala_de_Ensayo.Reserva.RN.GestorDeReserva.BuscarTurno(idTurno).Fecha;
             var horaTurno = Turnos_Sala_de_Ensayo.Reserva.RN.GestorDeReserva.BuscarTurno(idTurno).Hora;
             ViewBag.idTurno = idTurno;
-            ViewBag.fechaTurno = fecha;
+            ViewBag.fechaTurno = DateFormat.DateFormater(fecha);
             ViewBag.idSala = idSala;
             ViewBag.idSala1 = idSala;
             ViewBag.horaTurno = horaTurno;

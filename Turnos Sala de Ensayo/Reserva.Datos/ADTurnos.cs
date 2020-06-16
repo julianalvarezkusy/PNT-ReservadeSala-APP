@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
@@ -144,6 +145,17 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                 return listaTurnosAPartirDeHoy.Where(o => !listaIdTurnosYaOcupados.Contains(o.Id)).ToList();
             }
 
+        }
+
+        public static DateTime ObtenerUltimaFecha()
+        {
+            using (Contexto c = new Contexto())
+            {
+                DateTime Fecha;
+
+                return Fecha = (
+                    c.Turnos.AsQueryable().Max(o=>o.Fecha));
+            }
         }
 
     }
