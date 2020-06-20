@@ -85,59 +85,7 @@
 
 
             </table>
-                <div class="row">
-                    <button class="btn btn-outline-primary" type="button" onclick="obtenerDatos()">Botoncito</button>
-                </div>
-                <div class="row">
-                    <button class="btn btn-outline-secondary" type="button" onclick="reiniciar()">Reiniciar</button>
-                </div>
-
-        </div>
-
-        <script>
-            function obtenerDatos() {
-            var posicion
-
-                var miArray = new Array(42);
-
-            for (var i = 0; i < miArray.length; i++) {
-                if (i == 0) {
-                    miArray[i] = 0;
-                } else if (i % 2 != 0) {
-                    miArray[i] = 1;
-                }
-            }
-
-
-            for (var i = 1; i < 43; i++) {
-                posicion = document.getElementById(i.toString());
-
-                if (miArray[i - 1] == 1) {
-                    posicion.innerHTML = "<button class = \"btn btn-outline-primary\">Disponible</button>";
-                }
-
-
-                console.log(posicion + i);
-            }
-
-            alert("Listo");
-
-        }
-
-        function reiniciar() {
-            var posicion
-
-                for (var i = 1; i < 46; i++) {
-                posicion = document.getElementById(i.toString());
-                posicion.innerHTML = "<label  >Ocupado</label>";
-                console.log(posicion + i);
-            }
-
-            alert("Listo");
-
-        }
-
-        </script>
+   
 
  
 </div>
