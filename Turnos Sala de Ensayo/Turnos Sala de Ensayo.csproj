@@ -131,7 +131,6 @@
     <Compile Include="Controllers\ConfirmarReservaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Horarios2Controller.cs" />
-    <Compile Include="Controllers\IndicadoresController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\SeleccionHorarioController.cs" />
@@ -157,7 +156,6 @@
     <Compile Include="Reserva.Entidades\Usuario.cs" />
     <Compile Include="Reserva.RN\DateFormat.cs" />
     <Compile Include="Reserva.RN\GestorDeReserva.cs" />
-    <Compile Include="Reserva.RN\RNIndicadores.cs" />
     <Compile Include="Reserva.RN\RNSalas.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
   </ItemGroup>
@@ -166,8 +164,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Chart.css" />
-    <Content Include="Content\Chart.min.css" />
     <Content Include="Content\img\arrow.svg" />
     <Content Include="Content\img\background-rock.jpg" />
     <Content Include="Content\img\bateria.jpg" />
@@ -190,8 +186,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\Chart.js" />
-    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -225,10 +219,10 @@
     <Content Include="Views\SeleccionHorario\Index.cshtml" />
     <Content Include="Views\Horarios2\Index.cshtml" />
     <Content Include="Views\ConfirmarReserva\Index.cshtml" />
-    <Content Include="Views\Indicadores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DateFormat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

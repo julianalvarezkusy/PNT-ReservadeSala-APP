@@ -8,7 +8,7 @@ img {
 body {
     font-family: 'Roboto Slab',sans-serif;
     /* background: url(../Content/img/marshall-wallpaper.jpg);*/
-    height: 100% !important;
+    height: 90vh;
 }
 
 .miLogo {

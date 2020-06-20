@@ -26,7 +26,6 @@ namespace Turnos_Sala_de_Ensayo.Controllers
         {
             int IdUsuario = SessionHelper.UsuarioLogueado.Id;
             GestorDeReserva.Reservar(modelo.IdSala, IdUsuario, modelo.IdTurno);
-            Session["Usuario"] = null;
 
             return RedirectToAction("Index", "Home");
         }
