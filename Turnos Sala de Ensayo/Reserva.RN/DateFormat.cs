@@ -57,5 +57,13 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
             return FechaString;
         }
+
+        public static int NumeroFecha(DateTime fecha)
+        {
+            String FechaString = fecha.ToString();
+            String[] DateParse = FechaString.Split('/');
+
+           return Convert.ToInt32(DateParse[0]);
+        }
     }
 }
