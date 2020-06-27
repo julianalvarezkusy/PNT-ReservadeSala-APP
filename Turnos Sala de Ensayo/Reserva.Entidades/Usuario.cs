@@ -15,5 +15,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
         public string Username { get; set; }
         public string Password { get; set; }
 
+        public bool EsAdmin { get; set; }
+
     }
 }

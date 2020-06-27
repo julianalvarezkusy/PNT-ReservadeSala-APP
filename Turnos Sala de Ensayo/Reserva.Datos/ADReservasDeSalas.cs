@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Turnos_Sala_de_Ensayo.Models;
 using Turnos_Sala_de_Ensayo.Reserva.Entidades;
 
 namespace Turnos_Sala_de_Ensayo.Reserva.Datos
@@ -36,6 +37,32 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             return reserva;
         }
 
+        public static List<ReservaDatosModel> DevolverListaReservas()
+        {
+            using(Contexto c = new Contexto())
+            {
+                List<ReservaDatosModel> lista = null;
+
+                lista = (from reserva in c.ReservasDeSalas
+                         join turno in c.Turnos on reserva.IdTurno equals turno.Id
+                         join usuario in c.Usuarios on reserva.IdUsuario equals usuario.Id
+                         select new ReservaDatosModel
+                         {
+                             Id = reserva.Id,
+                             Fecha = turno.Fecha.ToString(),
+                             Hora = turno.Hora.ToString(),
+                             Usuario = usuario.Username,
+                             IdSala = reserva.IdSala
+
+                         }
+
+
+                         ).ToList();
+
+                return lista;
+            }
+        }
+
         //public static ReservaDeSala Agregar(ReservaDeSala ReservaDeSala)
         //{
         //    using (Contexto c = new Contexto())
@@ -44,7 +71,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
         //        c.SaveChanges();
         //        return ReservaDeSala;
         //    }
-            
+
         //}
     }
 }

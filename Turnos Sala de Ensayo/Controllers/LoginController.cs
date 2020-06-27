@@ -34,6 +34,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
         }
         public ActionResult Loguearse(LogInModel modelo)
         {
+            Session["Usuario"] = null;
 
             ActionResult action = RedirectToAction("Index", "SeleccionSalas");
             Usuario usuario = null;
@@ -57,6 +58,13 @@ namespace Turnos_Sala_de_Ensayo.Controllers
                 else
                 {
                     this.UsuarioLogueado = usuario;
+
+                    if (UsuarioLogueado.EsAdmin)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    
+                     
                 }
             }
          

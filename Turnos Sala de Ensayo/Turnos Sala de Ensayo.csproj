@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AgregarUsuarioController.cs" />
     <Compile Include="Controllers\ConfirmarReservaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -140,7 +141,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005252044100_InitialCreate.cs" />
+    <Compile Include="Migrations\202005252044100_InitialCreate.designer.cs">
+      <DependentUpon>202005252044100_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006271733281_juli.cs" />
+    <Compile Include="Migrations\202006271733281_juli.designer.cs">
+      <DependentUpon>202006271733281_juli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006271739418_juli2.cs" />
+    <Compile Include="Migrations\202006271739418_juli2.designer.cs">
+      <DependentUpon>202006271739418_juli2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\FechaModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\ReservaDatosModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
     <Compile Include="Models\SemanaModel.cs" />
     <Compile Include="Models\TurnosModel.cs" />
@@ -151,6 +167,8 @@
     <Compile Include="Reserva.Datos\ADUsuario.cs" />
     <Compile Include="Reserva.Datos\BaseDeDatos.cs" />
     <Compile Include="Reserva.Datos\Contexto.cs" />
+    <Compile Include="Reserva.Entidades\Admin.cs" />
+    <Compile Include="Reserva.Entidades\Mes.cs" />
     <Compile Include="Reserva.Entidades\ReservaDeSala.cs" />
     <Compile Include="Reserva.Entidades\Turno.cs" />
     <Compile Include="Reserva.Entidades\Sala.cs" />
@@ -226,6 +244,7 @@
     <Content Include="Views\Horarios2\Index.cshtml" />
     <Content Include="Views\ConfirmarReserva\Index.cshtml" />
     <Content Include="Views\Indicadores\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,6 +261,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005252044100_InitialCreate.resx">
+      <DependentUpon>202005252044100_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006271733281_juli.resx">
+      <DependentUpon>202006271733281_juli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006271739418_juli2.resx">
+      <DependentUpon>202006271739418_juli2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

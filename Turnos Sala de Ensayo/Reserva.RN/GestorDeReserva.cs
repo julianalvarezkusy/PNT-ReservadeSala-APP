@@ -51,6 +51,15 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         public static void ConstruirTurnos()
         {
+
+            ADTurnos.Agregar(new Turno()
+            {
+                Fecha = DateTime.Now.AddDays(-7),
+                Hora = 18
+
+            }
+                ); 
+
             DateTime fechaDesde = ObtenerUltimaFecha();
 
             DateTime fechaHastaNueva = fechaDesde.AddDays(30);
@@ -89,6 +98,11 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
         public static List<Models.TurnosModel> DevolverListaTurnos(int idSala, DateTime fechaIni, DateTime fechaFin)
         {
             return ADTurnos.devolverLista(idSala, fechaIni, fechaFin);
+        }
+
+        public static List<Models.TurnosModel> DevolverListaTurnosOcupados(int idSala, DateTime fechaIni, DateTime fechaFin)
+        {
+            return ADTurnos.DevolverTurnosOcupados(idSala, fechaIni, fechaFin);
         }
 
         //Método deprecado
@@ -262,5 +276,11 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             return listaTurnos;
             
          }
+
+        public static List<Models.ReservaDatosModel> DevolverListaReservas()
+        {
+            return ADReservasDeSalas.DevolverListaReservas();
+        }
+
     }
 }

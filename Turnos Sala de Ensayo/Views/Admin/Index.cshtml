@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    List<Turnos_Sala_de_Ensayo.Models.ReservaDatosModel> reservas = ViewBag.Reservas;
+}
+
+<h2>Index</h2>
+
+<div class="container" style="padding-top:50px; text-align: center;">
+
+    <a type="button" class="btn-default">Ver Turnos</a>
+    <a type="submit" class="btn-default" href="~/Indicadores/Index">Ver Estadísticas</a>
+    <form method="get" action="CrearTurnos">
+        <input type="submit" />
+    </form>
+
+    <div style="height: 20px"></div>
+
+    @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel  reserva in reservas)
+    {
+        <div class="card">
+            <div class="card-header">
+                @reserva.Fecha
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Usuario: @reserva.Usuario </h5>
+                <h5 class="card-title">Sala: @reserva.IdSala </h5>
+                <h5 class="card-title">Fecha: @reserva.Fecha </h5>
+                <h5 class="card-title">Hora: @reserva.Hora  </h5>
+
+
+            </div>
+        </div>
+    }
+
+
+
+</div>
+
