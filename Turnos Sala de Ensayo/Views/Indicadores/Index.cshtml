@@ -5,12 +5,26 @@
 
     //String[] Fechas = ViewBag.Fechas;
     //int[] CantTurnos = ViewBag.Turnos;
+    
 
 }
 
 <h2>Index</h2>
 
-<div class="container">
+
+<div class="container" style="padding-top: 5rem;">
+    
+    <div>
+        <form method="get" action="graficar">
+            <input type="month" class="form-control" name="fecha" id="fecha" />
+            <input type="submit" value="graficar" />
+        </form>
+    </div>
+
+    <div>
+        <h1>Junio 2020</h1>
+    </div>
+
 
     <canvas id="myChart" width="400" height="400"></canvas>
 

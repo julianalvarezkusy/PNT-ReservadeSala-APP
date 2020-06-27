@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Turnos_Sala_de_Ensayo.Models;
 using Turnos_Sala_de_Ensayo.Reserva.RN;
 
 namespace Turnos_Sala_de_Ensayo.Controllers
@@ -11,13 +12,25 @@ namespace Turnos_Sala_de_Ensayo.Controllers
     public class IndicadoresController : Controller
     {
         // GET: Indicadores
-        public ActionResult Index()
+        public ActionResult Index(FechaModel model)
         {
-            String[] Fechas = ObtenerDias();
-            DateTime FechaInicio = Convert.ToDateTime("01/06/2020");
-            DateTime FechaFin= Convert.ToDateTime("30/06/2020"); ;
+            DateTime InicioDeLosTiempos = DateTime.MinValue;
+            if(model.Fecha == InicioDeLosTiempos)
+            {
+                model.Fecha = DateTime.Now;
+            }
+
+            //estoy probando acá
+            int IdMes = model.Fecha.Month;
+            int Anio = model.Fecha.Year;
+            String[] Fechas = ObtenerDias(model.Fecha.Month, model.Fecha.Year);
+            String FInicio = "01/" + IdMes + "/" + Anio;
+            int CantDiasMes = DateTime.DaysInMonth(Anio, IdMes);
+            String FFin = CantDiasMes + "/" + IdMes + "/" + Anio;
+            DateTime FechaInicio = Convert.ToDateTime(FInicio);
+            DateTime FechaFin = Convert.ToDateTime(FFin);
             int[] CantTurnosPorFecha = RNIndicadores.DevolverCantTurnosOcupados(1, FechaInicio, FechaFin);
-            //String Turnos;
+            
 
             ViewBag.Fechas = Fechas;
 
@@ -28,23 +41,33 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             return View();
         }
 
+        public ActionResult graficar(DateTime fecha)
+        {
 
-        public static String[] ObtenerDias()
+            Models.FechaModel  modelo = new FechaModel();
+            modelo.Fecha = fecha;
+
+            //return View("Index",modelo);
+
+            return RedirectToAction("Index");
+        }
+
+    
+
+
+        public static String[] ObtenerDias(int mes, int anio)
         {
             //DateTime Fecha = DateTime.Today;
 
             //int Mes = Fecha.Month;
 
-            String[] Fechas = new string[30];
+            String[] Fechas = new string[DateTime.DaysInMonth(anio,mes)];
 
            // String Comillas = "\"";
 
             for (int i = 0; i < Fechas.Length; i++){
-                //Fechas = Fechas + Comillas + (i+1) + "/6" + Comillas + ",";
-
-                //Fechas = String.Concat(Fechas, "\"", (i + 1).ToString(), "/6\",");
-
-                Fechas[i] = (i + 1) + "/6";
+                
+                Fechas[i] = (i + 1) + "/" + mes;
 
 
             }
