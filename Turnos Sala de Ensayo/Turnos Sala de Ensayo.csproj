@@ -141,18 +141,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005252044100_InitialCreate.cs" />
-    <Compile Include="Migrations\202005252044100_InitialCreate.designer.cs">
-      <DependentUpon>202005252044100_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006271733281_juli.cs" />
-    <Compile Include="Migrations\202006271733281_juli.designer.cs">
-      <DependentUpon>202006271733281_juli.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006271739418_juli2.cs" />
-    <Compile Include="Migrations\202006271739418_juli2.designer.cs">
-      <DependentUpon>202006271739418_juli2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FechaModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
@@ -261,17 +249,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005252044100_InitialCreate.resx">
-      <DependentUpon>202005252044100_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006271733281_juli.resx">
-      <DependentUpon>202006271733281_juli.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006271739418_juli2.resx">
-      <DependentUpon>202006271739418_juli2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

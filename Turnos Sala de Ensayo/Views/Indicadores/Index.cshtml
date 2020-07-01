@@ -9,20 +9,20 @@
 
 }
 
-<h2>Index</h2>
 
 
-<div class="container" style="padding-top: 5rem;">
+
+<div class="container" style="padding-top: 10rem;">
     
     <div>
-        <form method="get" action="graficar">
+        <form method="post" action="Indicadores/graficar">
             <input type="month" class="form-control" name="fecha" id="fecha" />
             <input type="submit" value="graficar" />
         </form>
     </div>
 
     <div>
-        <h1>Junio 2020</h1>
+        <h1>@ViewBag.Mes @ViewBag.Anio</h1>
     </div>
 
 

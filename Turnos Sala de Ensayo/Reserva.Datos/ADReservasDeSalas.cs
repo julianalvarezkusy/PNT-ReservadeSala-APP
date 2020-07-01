@@ -46,6 +46,8 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
                 lista = (from reserva in c.ReservasDeSalas
                          join turno in c.Turnos on reserva.IdTurno equals turno.Id
                          join usuario in c.Usuarios on reserva.IdUsuario equals usuario.Id
+                         where turno.Fecha > DateTime.Today
+                         orderby reserva.Id ascending
                          select new ReservaDatosModel
                          {
                              Id = reserva.Id,
