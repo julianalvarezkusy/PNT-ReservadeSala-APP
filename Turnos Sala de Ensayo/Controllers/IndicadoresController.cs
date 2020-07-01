@@ -33,10 +33,9 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             
 
             ViewBag.Fechas = Fechas;
-
-            
-
             ViewBag.Turnos = CantTurnosPorFecha;
+            ViewBag.Mes = GetMes(IdMes);
+            ViewBag.Anio = Anio;
 
             return View();
         }
@@ -47,9 +46,12 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             Models.FechaModel  modelo = new FechaModel();
             modelo.Fecha = fecha;
 
+ 
+
+
             //return View("Index",modelo);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Indicadores", modelo);
         }
 
     
@@ -76,6 +78,39 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
             return Fechas;
 
+        }
+
+        private String GetMes(int numeroMes)
+        {
+            String Mes = "";
+            switch (numeroMes)
+            {
+                case 1: Mes = "Enero";
+                    break;
+                case 2: Mes = "Febrero";
+                    break;
+                case 3: Mes = "Marzo";
+                    break;
+                case 4: Mes = "Abril";
+                    break;
+                case 5: Mes = "Mayo";
+                    break;
+                case 6: Mes = "Junio";
+                    break;
+                case 7: Mes = "Julio";
+                    break;
+                case 8: Mes = "Agosto";
+                    break;
+                case 9: Mes = "Septiembre";
+                    break;
+                case 10: Mes = "Octubre";
+                    break;
+                case 11: Mes = "Noviembre";
+                    break;
+                case 12: Mes = "Diciembre";
+                    break;
+            }
+            return Mes;
         }
 
         

@@ -93,7 +93,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 
         public static List<Models.TurnosModel> devolverLista(int idSala, DateTime fechaIni, DateTime fechaFin)
         {
-
+            fechaFin = fechaFin.AddDays(1);
             using (Contexto c = new Contexto())
             {
                 List<Models.TurnosModel> listaTurnosAPartirDeHoy = null;

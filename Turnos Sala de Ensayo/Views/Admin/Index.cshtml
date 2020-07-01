@@ -5,36 +5,107 @@
     List<Turnos_Sala_de_Ensayo.Models.ReservaDatosModel> reservas = ViewBag.Reservas;
 }
 
-<h2>Index</h2>
 
-<div class="container" style="padding-top:50px; text-align: center;">
 
-    <a type="button" class="btn-default">Ver Turnos</a>
-    <a type="submit" class="btn-default" href="~/Indicadores/Index">Ver Estadísticas</a>
+
+<div class="container" style="padding-top:50px; text-align: center; padding-top: 100px;">
+
+
+
+    <h1 class="h1">Pantalla de Administración</h1>
+
+    <a type="submit" class="btn btn-primary" href="~/Indicadores/Index">Ver Estadísticas</a>
     <form method="get" action="CrearTurnos">
-        <input type="submit" />
+        <input type="submit" class="btn-default" value="Crear Turnos" />
     </form>
 
     <div style="height: 20px"></div>
 
-    @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel  reserva in reservas)
-    {
-        <div class="card">
-            <div class="card-header">
-                @reserva.Fecha
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Usuario: @reserva.Usuario </h5>
-                <h5 class="card-title">Sala: @reserva.IdSala </h5>
-                <h5 class="card-title">Fecha: @reserva.Fecha </h5>
-                <h5 class="card-title">Hora: @reserva.Hora  </h5>
+    <h1>Próximos Turnos</h1>
+
+    <div class="container">
+        <h3 id="Sala1">Reservas Sala 1 </h3>
+   
+            @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
+            {
+                if (reserva.IdSala == 1)
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            @reserva.Fecha
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Usuario: @reserva.Usuario </h5>
+                            <h5 class="card-title">Sala: @reserva.IdSala </h5>
+                            <h5 class="card-title">Fecha: @reserva.Fecha </h5>
+                            <h5 class="card-title">Hora: @reserva.Hora  </h5>
 
 
-            </div>
-        </div>
-    }
+                        </div>
+                    </div>
+                }
 
 
 
+            }
+        
+    </div>
+    <div class="container">
+        <h3 id="Sala2">Reservas Sala 2 </h3>
+        
+            @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
+            {
+                if (reserva.IdSala == 2)
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            @reserva.Fecha
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Usuario: @reserva.Usuario </h5>
+                            <h5 class="card-title">Sala: @reserva.IdSala </h5>
+                            <h5 class="card-title">Fecha: @reserva.Fecha </h5>
+                            <h5 class="card-title">Hora: @reserva.Hora  </h5>
+
+
+                        </div>
+                    </div>
+                }
+
+
+
+            }
+
+    
+    </div>
+
+    <div class="container">
+        <h3 id="Sala3">Reservas Sala 3 </h3>
+        
+            @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
+            {
+                if (reserva.IdSala == 3)
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            @reserva.Fecha
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Usuario: @reserva.Usuario </h5>
+                            <h5 class="card-title">Sala: @reserva.IdSala </h5>
+                            <h5 class="card-title">Fecha: @reserva.Fecha </h5>
+                            <h5 class="card-title">Hora: @reserva.Hora  </h5>
+
+
+                        </div>
+                    </div>
+                }
+
+
+
+            }
+
+        
+    </div>
 </div>
 
