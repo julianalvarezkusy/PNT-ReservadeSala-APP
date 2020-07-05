@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    List<Turnos_Sala_de_Ensayo.Reserva.Entidades.ServicioAdicional> servicioAdicional = ViewBag.adicional;
+}
+
+<h2>index</h2>
+
+<section class="fondo">
+    <div class="container" style="height: 5rem;"></div>
+    <main class=" container row card-deck mx-auto">
+
+        @foreach(Turnos_Sala_de_Ensayo.Reserva.Entidades.ServicioAdicional servicio in servicioAdicional)
+        {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/img/Guitarra.jfif" alt="Card image">
+            <div class="card-body">
+                <h5 class="card-title">@servicio.Nombre</h5>
+                <p class="card-text">@servicio.Descripcion</p>
+
+                <a href="~/ConfirmarReserva/index?idSala=1" class="btn btn-primary btn-sm">Agregar</a>
+            </div>
+        </div>
+            }
+    </main>
+
+    <div style="height: 4rem;"></div>
+</section>

@@ -13,6 +13,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
 
         public int IdTurno { get; set; }
 
+
         public ReservaDeSala(int idSala, int idUsuario, int idTurno)
         {
             this.IdSala = idSala;
