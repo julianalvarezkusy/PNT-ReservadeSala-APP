@@ -9,7 +9,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 {
     public class RNServicioAdicional
     {
-        public static List<ServicioAdicional> obtenerServicio()
+        public static List<Models.ServicioAdicionalModel> obtenerServicio()
         {
             return ADServicios.devolverServicio();
         }

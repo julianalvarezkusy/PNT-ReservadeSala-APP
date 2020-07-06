@@ -19,6 +19,8 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             ViewBag.idSala = idSala;
             ViewBag.idSala1 = idSala;
             ViewBag.horaTurno = horaTurno;
+            ViewBag.adicionales = RNServicioAdicional.obtenerServicio();
+
             return View();
         }
 

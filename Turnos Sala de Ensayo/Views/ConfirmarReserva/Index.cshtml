@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel> servicioAdicional = new List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel>();
+    servicioAdicional = ViewBag.adicionales;
 }
 
     <div class="container" style="padding-top: 10rem;padding-bottom: 5rem;">
@@ -26,14 +28,33 @@
                 </tr>
 
             </table>
+            <div class=" container row card-deck mx-auto" style="height:30rem;">
+                @if (servicioAdicional == null)
+            {
+                <h1>No hay adicionales para mostrar</h1>
+            }
+            else
+            {
+                foreach (Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel servicio in ViewBag.adicionales)
+                {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@servicio.Nombre</h5>
+                        <p class="card-text">@servicio.Descripcion</p>
+                        <input type="number" name="@servicio.Id"/>
+                    </div>
+                </div>
+                }
+            }
+            </div>
             <form method="get" action="reservar" id="confirmar">
-                <input type="hidden" id="IdSala"  name="IdSala" value="@ViewBag.idSala">
+                <input type="hidden" id="IdSala" name="IdSala" value="@ViewBag.idSala">
                 <input type="hidden" id="IdTurno" name="IdTurno" value="@ViewBag.idTurno">
-                
+
 
                 <input class="btn btn-danger" type="submit" value="Confirmar" />
             </form>
-            
+
 
         </div>
     </div>
