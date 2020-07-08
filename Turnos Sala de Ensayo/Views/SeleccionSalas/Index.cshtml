@@ -2,52 +2,37 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    List<Turnos_Sala_de_Ensayo.Models.SalaModel> salas = new List<Turnos_Sala_de_Ensayo.Models.SalaModel>();
+    salas = ViewBag.sala;
 }
 
     <section class="fondo">
         <div class="container" style="height: 5rem;"></div>
-        <main class=" container row card-deck mx-auto">
+        <main class=" container row card-deck mx-auto col-md-12">
+            @if (salas == null)
+            {
+                <h1>No hay sala</h1>
+            }
+            else
+            {
+                foreach (Turnos_Sala_de_Ensayo.Models.SalaModel sala in ViewBag.sala)
+                {
+                    <div class="card mb-4">
+                        <img class="card-img-top" src="~/Content/img/sala_de_ensayo1.jpg" alt="Card image">
+                        <div class="card-body">
+                            <h5 class="card-title">@sala.Nombre</h5>
+                            <p class="card-text">@sala.Descripcion</p>
+                            <p class="card-text">@sala.Precio</p>
 
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="~/Content/img/sala_de_ensayo1.jpg" alt="Card image">
-                <div class="card-body">
-                    <h5 class="card-title">SALA PEQUEÑA</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    <a href="~/seleccionHorario/index?idSala=1" class="btn btn-primary btn-sm">RESERVAR AHORA</a>
+                            <a href="~/seleccionHorario/index?idSala=@sala.Id" class="btn btn-primary btn-sm">RESERVAR AHORA</a>
 
 
-                </div>
+                        </div>
 
-            </div>
-
-
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="~/Content/img/sala_de_ensayo1.jpg" alt="Card image">
-                <div class="card-body">
-                    <h5 class="card-title">SALA MEDIANA</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                    <a href="~/seleccionHorario/index?idSala=2" class="btn btn-primary btn-sm">RESERVAR AHORA</a>
-
-                </div>
-
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="~/Content/img/sala_de_ensayo1.jpg" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">SALA GRANDE</h5>
-                    <p class="card-text">
-                        Acá va una descripción de la sala.
-                    </p>
-
-                    <a href="~/seleccionHorario/index?idSala=3" class="btn btn-primary btn-sm">RESERVAR AHORA</a>
-
-                </div>
-
-            </div>
-        </main>
+                    </div>
+                }
+            }
+                </main>
     
         <div style="height: 4rem;"></div>
     </section>

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+}
+
+<h2>Agregar Sala</h2>
+
+<form class="form-horizontal" action='CrearSala' method="POST" style="padding-top: 200px;">
+    <div class="container">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register</legend>
+            </div>
+            <div class="control-group">
+                <!-- Nombre -->
+                <label class="control-label" for="salaName">Nombre</label>
+                <div class="controls">
+                    <input type="text" id="Nombre" name="Nombre" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Descripcion -->
+                <label class="control-label" for="salaDescripcion">Descripcion</label>
+                <div class="controls">
+                    <input type="text" id="Descripcion" name="Descripcion" placeholder="" class="input-xlarge">
+
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Precio -->
+                <label class="control-label" for="salaPrecio">Precio</label>
+                <div class="controls">
+                    <input type="number" id="Precio" name="Precio" placeholder="" class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Agregar sala</button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</form>
+

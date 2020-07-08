@@ -18,11 +18,11 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
            List<SelectListItem> items = GestorDeReserva.DevolverListaItems(idSala);
 
-            List<SelectListItem> itemsSala = GestorDeReserva.DevolverListaSalas();
+           // List<SelectListItem> itemsSala = GestorDeReserva.DevolverListaSalas();
 
             ViewBag.idSala = idSala;
             ViewBag.items = items;
-            ViewBag.itemsSala = itemsSala;
+           // ViewBag.itemsSala = itemsSala;
 
             if (TempData["mensaje"] != null)
                 ViewBag.MensajeError = TempData["mensaje"].ToString();

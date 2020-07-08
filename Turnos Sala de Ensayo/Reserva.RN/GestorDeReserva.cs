@@ -223,6 +223,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
         }
 
         //Método deprecado
+        /*
         public static List<SelectListItem> DevolverListaSalas()
         {
             List<Sala> listaDeSalas = ADSalas.Buscar();
@@ -239,7 +240,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
                 };
             });
             return items; 
-        }
+        }*/
 
         public static Turno BuscarTurno(int idTurno)
         {

@@ -13,6 +13,6 @@ namespace Turnos_Sala_de_Ensayo.Models
 
         public String Usuario { get; set; }
 
-        public int IdSala { get; set; }
+        public int IdSala { get; internal set; }
     }
 }

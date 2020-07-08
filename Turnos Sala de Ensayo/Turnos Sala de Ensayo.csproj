@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AgregarSalaController.cs" />
     <Compile Include="Controllers\AgregarUsuarioController.cs" />
     <Compile Include="Controllers\ConfirmarReservaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -167,11 +168,16 @@
     <Compile Include="Migrations\202007052226441_Final 2.designer.cs">
       <DependentUpon>202007052226441_Final 2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007072354452_Final 4.cs" />
+    <Compile Include="Migrations\202007072354452_Final 4.designer.cs">
+      <DependentUpon>202007072354452_Final 4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FechaModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\ReservaDatosModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
+    <Compile Include="Models\SalaModel.cs" />
     <Compile Include="Models\SemanaModel.cs" />
     <Compile Include="Models\ServicioAdicionalModel.cs" />
     <Compile Include="Models\TurnosModel.cs" />
@@ -197,6 +203,7 @@
     <Compile Include="Reserva.RN\RNSalas.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
     <Compile Include="Reserva.RN\RNServicioAdicional.cs" />
+    <Compile Include="Reserva.RN\SalaRN.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -268,6 +275,7 @@
     <Content Include="Views\Indicadores\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\ServiciosAdicionales\index.cshtml" />
+    <Content Include="Views\AgregarSala\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007052226441_Final 2.resx">
       <DependentUpon>202007052226441_Final 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007072354452_Final 4.resx">
+      <DependentUpon>202007072354452_Final 4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,9 +9,15 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 {
     public class RNSalas
     {
-        public static Sala agregarSala(Sala sala)
+        public static List<Models.SalaModel> devolverSala()
         {
-            return ADSalas.agregarSala(sala);
+            return ADSalas.devolverSala();
+        }
+
+        public static void crearSala(Sala sala)
+        {
+
+            ADSalas.crearSala(sala);
         }
     }
 }

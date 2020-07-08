@@ -8,24 +8,28 @@
 
 
 
-<div class="container" style="padding-top:50px; text-align: center; padding-top: 100px;">
+    <div class="container" style="padding-top:50px; text-align: center; padding-top: 100px;">
 
 
 
-    <h1 class="h1">Pantalla de Administración</h1>
+        <h1 class="h1">Pantalla de Administración</h1>
 
-    <a type="submit" class="btn btn-primary" href="~/Indicadores/Index">Ver Estadísticas</a>
-    <form method="get" action="CrearTurnos">
-        <input type="submit" class="btn-default" value="Crear Turnos" />
-    </form>
+        <a type="submit" class="btn btn-primary" href="~/Indicadores/Index">Ver Estadísticas</a>
+        <form method="get" action="CrearTurnos">
+            <input type="submit" class="btn-default" value="Crear Turnos" />
+        </form>
 
-    <div style="height: 20px"></div>
+        <form method="get" action="CrearSala">
+            <input type="submit" class="btn-default" value="Crear Sala" />
+        </form>
 
-    <h1>Próximos Turnos</h1>
+        <div style="height: 20px"></div>
 
-    <div class="container">
-        <h3 id="Sala1">Reservas Sala 1 </h3>
-   
+        <h1>Próximos Turnos</h1>
+
+        <div class="container">
+            <h3 id="Sala1">Reservas Sala 1 </h3>
+
             @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
             {
                 if (reserva.IdSala == 1)
@@ -48,11 +52,11 @@
 
 
             }
-        
-    </div>
-    <div class="container">
-        <h3 id="Sala2">Reservas Sala 2 </h3>
-        
+
+        </div>
+        <div class="container">
+            <h3 id="Sala2">Reservas Sala 2 </h3>
+
             @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
             {
                 if (reserva.IdSala == 2)
@@ -76,12 +80,12 @@
 
             }
 
-    
-    </div>
 
-    <div class="container">
-        <h3 id="Sala3">Reservas Sala 3 </h3>
-        
+        </div>
+
+        <div class="container">
+            <h3 id="Sala3">Reservas Sala 3 </h3>
+
             @foreach (Turnos_Sala_de_Ensayo.Models.ReservaDatosModel reserva in reservas)
             {
                 if (reserva.IdSala == 3)
@@ -105,7 +109,7 @@
 
             }
 
-        
+
+        </div>
     </div>
-</div>
 

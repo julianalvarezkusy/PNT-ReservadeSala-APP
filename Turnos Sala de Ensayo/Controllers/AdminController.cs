@@ -29,5 +29,10 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
             return View("Index");
         }
+
+        public ActionResult CrearSala()
+        {
+            return RedirectToAction("index", "AgregarSala");
+        }
     }
 }
