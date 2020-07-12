@@ -247,12 +247,35 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
             return ADTurnos.Buscar(idTurno);
         }
 
-        public static ReservaDeSala Reservar(int idSala, int usuario, int turno)
+        public static void Reservar(int idSala, int usuario, int turno, List<ServicioAdicionalModel> servicios)
         {
-            
-                return ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno));
+            List<ServicioAdicional> listaServicios = new List<ServicioAdicional>();
+            listaServicios = obtenerServicios(servicios);
+            ADReservasDeSalas.Reservar(new ReservaDeSala(idSala, usuario, turno, listaServicios));
+
+            agregarAdicionales(listaServicios);
+
            
             
+        }
+
+
+        private static void agregarAdicionales (List<ServicioAdicional> servicios)
+        {
+            int IdReserva = ADReservasDeSalas.obtenerReserva();
+            ADReservasDeSalas.agregarAdicionales(new ReservaAdicional(IdReserva, servicios));
+
+            
+        }
+
+        private static List<ServicioAdicional> obtenerServicios(List <ServicioAdicionalModel> lista)
+        {
+            List<ServicioAdicional> retorno = new List<ServicioAdicional>();
+            foreach (ServicioAdicionalModel servicio in lista ){
+                retorno.Add(new ServicioAdicional(servicio.Id, servicio.Nombre, servicio.Precio, servicio.Descripcion, servicio.Cantidad));
+            }
+
+            return retorno;
         }
 
         public static DateTime DameLunes(DateTime fechaActual)

@@ -65,15 +65,24 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             }
         }
 
-        //public static ReservaDeSala Agregar(ReservaDeSala ReservaDeSala)
-        //{
-        //    using (Contexto c = new Contexto())
-        //    {
-        //        c.ReservaDeSala.Add(ReservaDeSala);
-        //        c.SaveChanges();
-        //        return ReservaDeSala;
-        //    }
+        public ReservaDeSala obtenerReserva()
+        {
+            using (Contexto c = new Contexto())
+            {
+                return from reserva in c.ReservasDeSalas
+                       where reserva.Id
 
-        //}
+                       //Completar
+
+                  }
+        }
+
+
+        public void agregarAdicionales()
+        {
+            //COMPLETAR
+        }
+
+
     }
 }

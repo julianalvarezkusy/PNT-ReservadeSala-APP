@@ -1,21 +1,25 @@
-﻿
+﻿@model Turnos_Sala_de_Ensayo.Models.ReservaModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
-    List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel> servicioAdicional = new List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel>();
-    servicioAdicional = ViewBag.adicionales;
+    //List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel> servicioAdicional = new List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel>();
+    //servicioAdicional = ViewBag.adicionales;
 }
 
-    <div class="container" style="padding-top: 10rem;padding-bottom: 5rem;">
+<div class="container" style="padding-top: 10rem;padding-bottom: 5rem;">
 
-        <h1>Confirmar Datos</h1>
+    <h1>Confirmar Datos</h1>
 
 
-        <div class="container">
+    <div class="container">
+
+        <form method="post" action="reservar" id="confirmar">
+
             <table class="table">
                 <tr>
                     <td>Sala</td>
-                    <td>@ViewBag.idSala</td>
+                    @*<td>@ViewBag.idSala</td>*@
+                    <td>@Model.IdSala</td>
                 </tr>
                 <tr>
                     <td>Turno</td>
@@ -29,32 +33,44 @@
 
             </table>
             <div class=" container row card-deck mx-auto" style="height:30rem;">
-                @if (servicioAdicional == null)
-            {
-                <h1>No hay adicionales para mostrar</h1>
-            }
-            else
-            {
-                foreach (Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel servicio in ViewBag.adicionales)
+                @if (Model.ServiciosAdicionales == null)
                 {
+                    <h1>No hay adicionales para mostrar</h1>
+                }
+                else
+                {
+                    
+                    @*foreach (Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel servicio in Model.ServiciosAdicionales)
+            {
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">@servicio.Nombre</h5>
                         <p class="card-text">@servicio.Descripcion</p>
-                        <input type="number" name="@servicio.Id"/>
+                        <input type="text" name="@servicio.Cantidad" />
+                        <input type="hidden" name="@servicio.Id" value="@servicio.Id" />
                     </div>
                 </div>
+                i++;
+            }*@
+                    for (int i = 0; i < Model.ServiciosAdicionales.Count; i++)
+                    {
+                        @Html.TextBoxFor(m => m.ServiciosAdicionales[i].Cantidad)
+                        @Html.HiddenFor(m => m.ServiciosAdicionales[i].Id)
+                        @Html.LabelFor(m => m.ServiciosAdicionales[i].Nombre,
+                                            Model.ServiciosAdicionales[i].Nombre)
+                        <br />
+
+                    }
                 }
-            }
             </div>
-            <form method="get" action="reservar" id="confirmar">
-                <input type="hidden" id="IdSala" name="IdSala" value="@ViewBag.idSala">
-                <input type="hidden" id="IdTurno" name="IdTurno" value="@ViewBag.idTurno">
+
+            <input type="hidden" id="IdSala" name="IdSala" value="@Model.IdSala">
+            <input type="hidden" id="IdTurno" name="IdTurno" value="@Model.IdTurno">
 
 
-                <input class="btn btn-danger" type="submit" value="Confirmar" />
-            </form>
+            <input class="btn btn-danger" type="submit" value="Confirmar" />
+        </form>
 
 
-        </div>
     </div>
+</div>

@@ -13,12 +13,16 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
 
         public int IdTurno { get; set; }
 
+        public List<ServicioAdicional> servicioAdicionales { get; set; }
 
-        public ReservaDeSala(int idSala, int idUsuario, int idTurno)
+
+        public ReservaDeSala(int idSala, int idUsuario, int idTurno, List<ServicioAdicional> servicios)
         {
             this.IdSala = idSala;
             this.IdUsuario = idUsuario;
             this.IdTurno = idTurno;
+            this.servicioAdicionales = servicios;
+           
         }
 
         public ReservaDeSala() {

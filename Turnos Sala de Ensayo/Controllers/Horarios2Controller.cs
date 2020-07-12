@@ -48,7 +48,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             //Turno turno = GestorDeReserva.BuscarTurno(modelo.IdTurno);
             if(GestorDeReserva.PuedoReservar(modelo.IdSala, modelo.IdTurno))
                 {
-                GestorDeReserva.Reservar(modelo.IdSala, usuario, modelo.IdTurno);
+                GestorDeReserva.Reservar(modelo.IdSala, usuario, modelo.IdTurno, null);
                 action = RedirectToAction("Index", "Home");
 
             } 
