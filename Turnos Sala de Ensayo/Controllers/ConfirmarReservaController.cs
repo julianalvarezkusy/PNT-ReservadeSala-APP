@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Turnos_Sala_de_Ensayo.Models;
 using Turnos_Sala_de_Ensayo.Reserva.RN;
 
 namespace Turnos_Sala_de_Ensayo.Controllers
@@ -21,13 +22,20 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             ViewBag.horaTurno = horaTurno;
             ViewBag.adicionales = RNServicioAdicional.obtenerServicio();
 
-            return View();
+            ReservaModel modelo = new ReservaModel();
+            modelo.IdTurno = idTurno;
+            ViewBag.fechaTurno = DateFormat.DateFormater(fecha);
+            modelo.IdSala = idSala;
+            //modelo.IdUsuario = ;
+            modelo.ServiciosAdicionales = RNServicioAdicional.obtenerServicio();
+
+            return View(modelo);
         }
 
         public ActionResult reservar(Models.ReservaModel modelo)
         {
             int IdUsuario = SessionHelper.UsuarioLogueado.Id;
-            GestorDeReserva.Reservar(modelo.IdSala, IdUsuario, modelo.IdTurno);
+            GestorDeReserva.Reservar(modelo.IdSala, IdUsuario, modelo.IdTurno, modelo.ServiciosAdicionales);
             Session["Usuario"] = null;
 
             return RedirectToAction("Index", "Home");

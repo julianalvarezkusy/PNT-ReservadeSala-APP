@@ -16,13 +16,15 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Entidades
         public double Precio { get; set; }
 
         public String Descripcion { get; set; }
+        public int Cantidad { get; set; }
 
-        public ServicioAdicional(int id, String nombre, double precio, String descripcion)
+        public ServicioAdicional(int id, String nombre, double precio, String descripcion, int cantidad)
         {
             this.Id = id;
             this.Nombre = nombre;
             this.Precio = precio;
             this.Descripcion = descripcion;
+            this.Cantidad = cantidad;
         }
         public ServicioAdicional()
         {

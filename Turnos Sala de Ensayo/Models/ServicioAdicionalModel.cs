@@ -15,6 +15,7 @@ namespace Turnos_Sala_de_Ensayo.Models
         public double Precio { get; set; }
 
         public String Descripcion { get; set; }
+        public int Cantidad { get; set; }
 
 
 
