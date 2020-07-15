@@ -65,12 +65,22 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             }
         }
 
-        public ReservaDeSala obtenerReserva()
+        public static ReservaModel obtenerReserva()
         {
             using (Contexto c = new Contexto())
             {
-                return from reserva in c.ReservasDeSalas
-                       where reserva.Id
+                
+                return (from reserva in c.ReservasDeSalas
+                                   orderby reserva.Id descending
+                                   select new ReservaModel
+                                   {
+                                       Id = reserva.Id,
+                                       IdSala = reserva.IdSala,
+                                       IdTurno = reserva.IdTurno,
+                                       IdUsuario = reserva.IdUsuario
+                                       //ServiciosAdicionales = reserva.servicioAdicionales
+                                   }
+                       ).FirstOrDefault();
 
                        //Completar
 
@@ -78,7 +88,7 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
         }
 
 
-        public void agregarAdicionales()
+        public static void agregarAdicionales()
         {
             //COMPLETAR
         }

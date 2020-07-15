@@ -262,14 +262,18 @@ namespace Turnos_Sala_de_Ensayo.Reserva.RN
 
         private static void agregarAdicionales (List<ServicioAdicional> servicios)
         {
-            int IdReserva = ADReservasDeSalas.obtenerReserva();
-            ADReservasDeSalas.agregarAdicionales(new ReservaAdicional(IdReserva, servicios));
+            int IdReserva = ADReservasDeSalas.obtenerReserva().Id;
+            //ADReservasDeSalas.agregarAdicionales(new ReservaAdicional(IdReserva, servicios));
 
             
         }
 
         private static List<ServicioAdicional> obtenerServicios(List <ServicioAdicionalModel> lista)
         {
+            if(lista == null)
+            {
+                throw new Exception("Lista Vacia");
+            }
             List<ServicioAdicional> retorno = new List<ServicioAdicional>();
             foreach (ServicioAdicionalModel servicio in lista ){
                 retorno.Add(new ServicioAdicional(servicio.Id, servicio.Nombre, servicio.Precio, servicio.Descripcion, servicio.Cantidad));

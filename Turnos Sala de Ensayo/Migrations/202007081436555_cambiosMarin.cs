@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class cambiosMarin : DbMigration
     {
         public override void Up()
         {
@@ -24,6 +24,19 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(),
+                        Precio = c.Double(nullable: false),
+                        Descripcion = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ServicioAdicionals",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(),
+                        Precio = c.Double(nullable: false),
+                        Descripcion = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -46,6 +59,7 @@
                         Apellido = c.String(),
                         Username = c.String(),
                         Password = c.String(),
+                        EsAdmin = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -55,6 +69,7 @@
         {
             DropTable("dbo.Usuarios");
             DropTable("dbo.Turnoes");
+            DropTable("dbo.ServicioAdicionals");
             DropTable("dbo.Salas");
             DropTable("dbo.ReservaDeSalas");
         }

@@ -7,13 +7,13 @@ namespace Turnos_Sala_de_Ensayo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Final2 : IMigrationMetadata
+    public sealed partial class julian1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Final2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(julian1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007052226441_Final 2"; }
+            get { return "202007130355270_julian1"; }
         }
         
         string IMigrationMetadata.Source
