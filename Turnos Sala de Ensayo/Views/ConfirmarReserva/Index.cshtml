@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_LayoutSalas.cshtml";
     List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel> servicioAdicional = new List<Turnos_Sala_de_Ensayo.Models.ServicioAdicionalModel>();
     servicioAdicional = ViewBag.adicionales;
+    List<Turnos_Sala_de_Ensayo.Models.SalaModel> salas = new List<Turnos_Sala_de_Ensayo.Models.SalaModel>();
+
 }
 
     <div class="container" style="padding-top: 10rem;padding-bottom: 5rem;">
@@ -15,16 +17,37 @@
             <table class="table">
                 <tr>
                     <td>Sala</td>
-                    <td>@ViewBag.idSala</td>
-                </tr>
+
+                    @foreach (Turnos_Sala_de_Ensayo.Models.SalaModel sala in ViewBag.salas)
+                    {
+                        if (ViewBag.idSala == sala.Id)
+                        {
+                            <td>@sala.Nombre</td>
+                        }
+                    }
+                        <td>
+                            <form method="post" action="modificar" id="modificar">
+                                <input type="hidden" id="nombreSala" name="nombreSala" value="modificado" />
+                                <input type="hidden" id="idTurno" name="IdTurno" value="@ViewBag.idTurno" />
+                                <select id="idSala" name="IdSala" size="1" onchange="modificar.submit();">
+                                    <option value="0" selected="selected">Cambiar sala</option>
+                                    @foreach (Turnos_Sala_de_Ensayo.Models.SalaModel sala in ViewBag.salas)
+                                    {
+                                        <option value="@sala.Id">@sala.Nombre</option>
+                                    }
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
                 <tr>
                     <td>Turno</td>
                     <td>@ViewBag.fechaTurno</td>
-
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Hora del Turno</td>
                     <td>@ViewBag.horaTurno</td>
+                    <td></td>
                 </tr>
 
             </table>

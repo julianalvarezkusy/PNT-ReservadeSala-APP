@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSalas.cshtml";
+    Turnos_Sala_de_Ensayo.Models.GananciaSalaModel[] ganancias = ViewBag.MatrizGanancias;
+    /*DateTime FechaFin = Convert.ToDateTime(TempData["FechaFin"]);
+    TempData.Keep("FechaFin");*/
+
+    int contador = 0;
+}
+
+    <div class="container horarios">
+        <h1>Estadistica Anual</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <form method="post" action="RetrocederSemana">
+                        <input type="hidden" id="id" name="Id" value="@ViewBag.idSala" />
+                        <input type="image" src="~/Content/img/left.svg">
+                    </form>
+
+                </div>
+                <div class="col-md-8 fechas">
+
+
+                    <h1 id="fechas"> @ViewBag.nombreSala</h1>
+
+                </div>
+                <div class="col-md-2">
+                    <form method="post" action="AvanzarSemana">
+                        <input type="hidden" id="id" name="Id" value="@ViewBag.idSala" />
+                        <input type="image" src="~/Content/img/arrow.svg">
+                    </form>
+                </div>
+            </div>
+
+            <table class="table table-striped">
+
+                @for (var i = 0; i < 3; i++)
+                {
+                    <tr>
+                        @for (var j = 0; j < 4; j++)
+                        {
+                            <td class="datoTabla">
+                                <div border="1" style="border: 1px solid black;">
+                                    <h4>@ganancias[contador].MesSala</h4>
+                                    <p>Reservas: @ganancias[contador].CantidadReservasSala</p>
+                                    <p>Ganancias: @ganancias[contador++].GananciasSala</p>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>

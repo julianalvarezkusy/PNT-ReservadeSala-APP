@@ -65,6 +65,34 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
             }
         }
 
+        public static List<ReservaDatosModel> DevolverListaReservas( int idSala, DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (Contexto c = new Contexto())
+            {
+                List<ReservaDatosModel> lista = null;
+
+                lista = (from reserva in c.ReservasDeSalas
+                         join turno in c.Turnos on reserva.IdTurno equals turno.Id
+                         join usuario in c.Usuarios on reserva.IdUsuario equals usuario.Id
+                         where reserva.IdSala == idSala && turno.Fecha > fechaInicio && turno.Fecha < fechaFin
+                         orderby reserva.Id ascending
+                         select new ReservaDatosModel
+                         {
+                             Id = reserva.Id,
+                             Fecha = turno.Fecha.ToString(),
+                             Hora = turno.Hora.ToString(),
+                             Usuario = usuario.Username,
+                             IdSala = reserva.IdSala
+
+                         }
+
+
+                         ).ToList();
+
+                return lista;
+            }
+        }
+
         //public static ReservaDeSala Agregar(ReservaDeSala ReservaDeSala)
         //{
         //    using (Contexto c = new Contexto())

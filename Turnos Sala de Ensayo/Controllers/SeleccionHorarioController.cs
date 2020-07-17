@@ -27,6 +27,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
             ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);
             ViewBag.idSala = modelo.IdSala;
+            ViewBag.nombreSala = modelo.NombreSala;
             ViewBag.MatrizTurnos = modelo.MatrizDeTurnos;
             ViewBag.FechaFin = modelo.FechaFin;
             ViewBag.FechaInicio = modelo.FechaInicio;
@@ -46,6 +47,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
             
             ViewBag.MatrizTurnos = matrizDeTurnos;
             ViewBag.idSala = modelo.IdSala;
+            ViewBag.nombreSala = modelo.NombreSala;
             ViewBag.FechaInicio = modelo.FechaInicio;
             ViewBag.FechaFin = modelo.FechaFin;
             ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);
@@ -65,6 +67,7 @@ namespace Turnos_Sala_de_Ensayo.Controllers
 
             ViewBag.MatrizTurnos = matrizDeTurnos;
             ViewBag.idSala = modelo.IdSala;
+            ViewBag.nombreSala = modelo.NombreSala;
             ViewBag.FechaInicio = modelo.FechaInicio;
             ViewBag.FechaFin = modelo.FechaFin;
             ViewBag.Lunes = DateFormat.DateFormater(modelo.FechaInicio) + " - " + DateFormat.DateFormater(modelo.FechaFin);

@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AgregarSalaController.cs" />
     <Compile Include="Controllers\AgregarUsuarioController.cs" />
     <Compile Include="Controllers\ConfirmarReservaController.cs" />
+    <Compile Include="Controllers\EstadisticaFinancieraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Horarios2Controller.cs" />
     <Compile Include="Controllers\IndicadoresController.cs" />
@@ -174,12 +175,15 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FechaModel.cs" />
+    <Compile Include="Models\GananciaSalaModel.cs" />
     <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\MesesSalaModel.cs" />
     <Compile Include="Models\ReservaDatosModel.cs" />
     <Compile Include="Models\ReservaModel.cs" />
     <Compile Include="Models\SalaModel.cs" />
     <Compile Include="Models\SemanaModel.cs" />
     <Compile Include="Models\ServicioAdicionalModel.cs" />
+    <Compile Include="Models\TurnoSalaModel.cs" />
     <Compile Include="Models\TurnosModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reserva.Datos\ADReservasDeSalas.cs" />
@@ -199,6 +203,7 @@
     <Compile Include="Reserva.Entidades\Usuario.cs" />
     <Compile Include="Reserva.RN\DateFormat.cs" />
     <Compile Include="Reserva.RN\GestorDeReserva.cs" />
+    <Compile Include="Reserva.RN\RNEstadisticaFinanciera.cs" />
     <Compile Include="Reserva.RN\RNIndicadores.cs" />
     <Compile Include="Reserva.RN\RNSalas.cs" />
     <Compile Include="Reserva.RN\RNUsuario.cs" />
@@ -276,9 +281,11 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\ServiciosAdicionales\index.cshtml" />
     <Content Include="Views\AgregarSala\Index.cshtml" />
+    <Content Include="Views\EstadisticaFinanciera\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MesesSala\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

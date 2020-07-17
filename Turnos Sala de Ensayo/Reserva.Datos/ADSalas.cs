@@ -10,23 +10,38 @@ namespace Turnos_Sala_de_Ensayo.Reserva.Datos
 {
     public class ADSalas
     {
-   /* {
-        public static List<Sala> Buscar()
+        /* {
+             public static List<Sala> Buscar()
+             {
+                 using(Contexto c = new Contexto())
+                 {
+                     return c.Sala.ToList();
+                 }
+             }
+
+             public static Sala agregarSala(Sala sala)
+             {
+                 using(Contexto c = new Contexto())
+                 {
+                     return c.salas.Add(sala);
+                 }
+             }*/
+
+        public static Models.SalaModel devolverSala(int idSala)
         {
-            using(Contexto c = new Contexto())
+            using (Contexto c = new Contexto())
             {
-                return c.Sala.ToList();
+                Sala salaBuscada = c.Sala.Where(o => o.Id == idSala).FirstOrDefault();
+                return new SalaModel
+                {
+                    Id = salaBuscada.Id,
+                    Nombre = salaBuscada.Nombre,
+                    Descripcion = salaBuscada.Descripcion,
+                    Precio = salaBuscada.Precio
+                };
             }
         }
 
-        public static Sala agregarSala(Sala sala)
-        {
-            using(Contexto c = new Contexto())
-            {
-                return c.salas.Add(sala);
-            }
-        }*/
-  
         public static List<Models.SalaModel> devolverSala()
         {
             using (Contexto c = new Contexto())

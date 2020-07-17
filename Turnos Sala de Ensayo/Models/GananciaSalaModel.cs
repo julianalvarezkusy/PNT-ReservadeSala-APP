@@ -5,12 +5,17 @@ using System.Web;
 
 namespace Turnos_Sala_de_Ensayo.Models
 {
-    public class SemanaModel
+    public class GananciaSalaModel
     {
+
         public int IdSala { get; set; }
+
         public String NombreSala { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
-        public Models.TurnosModel[,] MatrizDeTurnos { get; set; }
+
+        public int CantidadReservasSala { get; set; }
+
+        public double GananciasSala { get; set; }
+
+        public String MesSala { get; set; }
     }
 }

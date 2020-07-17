@@ -12,41 +12,28 @@
 
 
 }
-
-
-
-
-
-
     <div class="container horarios">
         <h1>
-            Seleccionaste la Sala: @ViewBag.idSala</h1>
+            Seleccionaste: @ViewBag.nombreSala</h1>
         <h1>Seleccioná la fecha</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <form method="post" action="RetrocederSemana">
+                    <form method="post" action="RetrocederSala">
                         <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
-                        <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
-                        <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
-                        <input type="image"src="~/Content/img/left.svg">
+                        <input type="image" src="~/Content/img/left.svg">
                     </form>
-                   
-                </div>
-                <div class="col-md-8 fechas">
-
-
-                    <h4 id="fechas">@ViewBag.Lunes</h4>
 
                 </div>
+                <!--<div class="col-md-8 fechas">
+        <h4 id="fechas">@ViewBag.Lunes</h4>
+    </div>-->
                 <div class="col-md-2">
-                    <form method="post" action="AvanzarSemana">
+                    <form method="post" action="AvanzarSala">
                         <input type="hidden" id="idSala" name="IdSala" value="@ViewBag.idSala" />
-                        <input type="hidden" id="fechaFin" name="FechaInicio" value="@ViewBag.FechaInicio" />
-                        <input type="hidden" id="fechaFin" name="FechaFin" value="@ViewBag.FechaFin" />
                         <input type="image" src="~/Content/img/arrow.svg">
                     </form>
-                        </div>
+                </div>
 
 
             </div>
